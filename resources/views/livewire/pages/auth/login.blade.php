@@ -44,7 +44,7 @@ new #[Layout('layouts.guest')] class extends Component
             </div>
         </div>
         <div class="flex items-center justify-center w-1/2 bg-white">
-            <form wire:submit.prevent="login"    method="POST" class="bg-white w-96">
+            <form wire:submit.prevent="login" method="POST" class="bg-white w-96">
                 @csrf
                 
                 <h1 class="mb-1 text-2xl font-bold text-gray-800">Hello Again!</h1>
