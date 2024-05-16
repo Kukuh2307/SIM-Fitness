@@ -1,0 +1,56 @@
+models:
+  # User:
+  #   id: int
+  #   nama: string
+  #   email: string email
+  #   password: string
+  #   Foto: string
+  #   Tanggal_bergabung: datetime
+  #   Tanggal_Berakhir: datetime
+  #   Role: enum('admin', 'user')
+
+  Informasi:
+    id: int
+    id_user: int
+    Judul: string
+    Deskripsi: string
+
+  ListAlat:
+    id: int
+    Nama_Alat: string
+    Jumlah: int
+    Kondisi_Alat: string
+    Foto: string
+    Merk: string
+
+  Kelas:
+    id: int
+    id_Instruktur: int
+    Nama_Kelas: string unique
+    Deskripsi: string
+    Biaya: int
+    Waktu_Mulai: datetime
+    Waktu_Selesai: datetime
+    Hari: enum('Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu')
+    Kuota: int
+
+  Instruktur:
+    id: int
+    id_Kelas: int
+    Nama: string unique
+    Email: string
+    Foto: string
+    Deskripsi: string
+    Spesialis: string
+    Biaya: int
+
+  Transaksi:
+    id: int
+    Nama_User: string
+    Nama_Instruktur: string
+    Nama_Kelas: string
+    Total_Biaya: int
+    Metoide_Pembayaran: string
+    Status: enum('Menunggu Konfirmasi', 'Dalam Proses', 'Selesai')
+
+controllers:

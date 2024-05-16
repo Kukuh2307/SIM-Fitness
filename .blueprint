@@ -1,0 +1,23 @@
+created:
+    - database/factories/InformasiFactory.php
+    - database/factories/ListAlatFactory.php
+    - database/factories/KelasFactory.php
+    - database/factories/InstrukturFactory.php
+    - database/factories/TransaksiFactory.php
+    - database/migrations/2024_05_16_073820_create_informasis_table.php
+    - database/migrations/2024_05_16_073821_create_list_alats_table.php
+    - database/migrations/2024_05_16_073822_create_kelas_table.php
+    - database/migrations/2024_05_16_073823_create_instrukturs_table.php
+    - database/migrations/2024_05_16_073824_create_transaksis_table.php
+    - app/Models/Informasi.php
+    - app/Models/ListAlat.php
+    - app/Models/Kelas.php
+    - app/Models/Instruktur.php
+    - app/Models/Transaksi.php
+models:
+    User: { id: string, nama: string, email: string, password: string, Foto: string, Tanggal_bergabung: datetime, Tanggal_Berakhir: datetime, Role: "enum:'admin','user' default:'user'" }
+    Informasi: { id: int, id_user: int, Judul: string, Deskripsi: string }
+    ListAlat: { id: int, Nama_Alat: string, Jumlah: int, Kondisi_Alat: string, Foto: string, Merk: string }
+    Kelas: { id: int, id_Instruktur: int, Nama_Kelas: 'string unique', Deskripsi: string, Biaya: int, Waktu_Mulai: datetime, Waktu_Selesai: datetime, Hari: "enum('Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu')", Kuota: int }
+    Instruktur: { id: int, id_Kelas: int, Nama: 'string unique', Email: string, Foto: string, Deskripsi: string, Spesialis: string, Biaya: int }
+    Transaksi: { id: int, Nama_User: string, Nama_Instruktur: string, Nama_Kelas: string, Total_Biaya: int, Metoide_Pembayaran: string, Status: "enum('Menunggu Konfirmasi', 'Dalam Proses', 'Selesai')" }
