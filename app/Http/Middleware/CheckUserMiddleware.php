@@ -5,9 +5,10 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use Symfony\Component\HttpFoundation\Response;
 
-class UserMiddleware
+class CheckUserMiddleware
 {
     /**
      * Handle an incoming request.
@@ -17,10 +18,12 @@ class UserMiddleware
     public function handle(Request $request, Closure $next): Response
     {
         // dd(Auth::user()->Role);
-        if (Auth::user()->Role === 'admin') {
+        if ($request->user()->Role === 'admin') {
             return $next($request);
-        } else {
+        } elseif ($request->user()->Role === 'user') {
             return redirect('/home');
+        } else {
+            return redirect('/login');
         }
     }
 }

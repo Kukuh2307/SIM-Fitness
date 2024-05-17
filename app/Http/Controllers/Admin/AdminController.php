@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
-class AdminController extends Controller
+class   AdminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -62,6 +62,11 @@ class AdminController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function login()
+    {
+        return view('livewire.pages.auth.login');
     }
     public function logout(Request $request)
     {

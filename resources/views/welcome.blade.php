@@ -24,7 +24,7 @@
                         </div>
                         @if (Route::has('login'))
                             <livewire:welcome.navigation />
-                        @endif
+                        @endifna
                     </header>
 
                     <main class="mt-6">
