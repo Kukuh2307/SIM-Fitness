@@ -17,6 +17,8 @@ Route::get('dashboard', [AdminController::class, 'index'])->middleware(['auth', 
 Route::view('profile', 'profile')
     ->middleware(['auth', 'admin'])
     ->name('profile');
+Route::get('/informasi', [AdminController::class, 'informasi'])->name('informasi');
+
 
 
 Route::get('home', [HomeController::class, 'index'])->name('home');

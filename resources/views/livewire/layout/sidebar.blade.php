@@ -25,7 +25,7 @@
             <a href="{{ url('admin.kelas') }}">kelas</a>
         </li>
         <li class="px-4 py-5 text-xl font-bold hover:bg-red-700">
-            <a href="{{ url('admin.pengumuman') }}">Pengumuman</a>
+            <a href="{{ url('informasi') }}">Informasi</a>
         </li>
         <!-- Tambahkan link lainnya sesuai kebutuhan -->
     </ul>

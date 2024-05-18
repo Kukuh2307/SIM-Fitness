@@ -82,4 +82,9 @@ class   AdminController extends Controller
         // Redirect to the login page or any other page
         return redirect('/')->with('status', 'You have been logged out successfully!');
     }
+
+    public function informasi()
+    {
+        return view('informasi');
+    }
 }

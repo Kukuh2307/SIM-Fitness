@@ -10,13 +10,13 @@ models:
   #   Role: enum('admin', 'user')
 
   Informasi:
-    id: int
+    id: increment
     id_user: int
     Judul: string
     Deskripsi: string
 
   ListAlat:
-    id: int
+    id: increment
     Nama_Alat: string
     Jumlah: int
     Kondisi_Alat: string
@@ -24,7 +24,7 @@ models:
     Merk: string
 
   Kelas:
-    id: int
+    id: increment
     id_Instruktur: int
     Nama_Kelas: string unique
     Deskripsi: string
@@ -35,7 +35,7 @@ models:
     Kuota: int
 
   Instruktur:
-    id: int
+    id: increment
     id_Kelas: int
     Nama: string unique
     Email: string
@@ -45,7 +45,7 @@ models:
     Biaya: int
 
   Transaksi:
-    id: int
+    id: increment
     Nama_User: string
     Nama_Instruktur: string
     Nama_Kelas: string
