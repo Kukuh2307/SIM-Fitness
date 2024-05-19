@@ -31,7 +31,7 @@
                         </header>
                     @endif --}}
 
-                                <!-- Page Content -->
+                    <!-- Page Content -->
                     <main class="overflow-scroll pl-52">
                         {{ $slot }}
                     </main>
