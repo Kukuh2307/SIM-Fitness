@@ -12,7 +12,7 @@ class Informasi extends Component
     public function render()
     {
         $this->dataInformasi = InformasiModel::orderBy('id', 'desc')->get();
-        return view('livewire.informasi-table', [
+        return view('informasi', [
             'dataInformasi' => $this->dataInformasi,
         ]);
     }
