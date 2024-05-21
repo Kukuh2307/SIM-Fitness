@@ -11,13 +11,15 @@
         <tbody class="bg-white divide-y divide-gray-200">
             @foreach ($informations as $key => $information)
                 <tr>
+                    {{-- id hidden --}}
+                    <td class="hidden px-6 py-4 whitespace-nowrap">{{ $information->id }}</td>
                     <td class="px-6 py-4 whitespace-nowrap">{{ $loop->index + 1 }}</td>
                     <td class="px-6 py-4 whitespace-nowrap">{{ $information->Judul }}</td>
                     <td class="max-w-xs px-6 py-4 truncate">{{ $information->Deskripsi }}</td>
                     <td class="px-6 py-4 whitespace-nowrap">
                         <div class="flex space-x-2">
-                            <a href="{{ url('edit.informasi', $information->id) }}" class="text-blue-500 hover:text-blue-700">Edit</a>
-                            <a href="{{ url('delete.informasi', $information->id) }}" class="text-red-500 hover:text-red-700">Delete</a>
+                            <a wire:click='edit({{ $information->id }})' class="text-blue-500 hover:text-blue-700">Edit</a>
+                            <a wire:click='delete({{ $information->id }})' class="text-red-500 hover:text-red-700">Delete</a>
                         </div>
                     </td>
                 </tr>
