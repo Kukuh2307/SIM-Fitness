@@ -11,6 +11,9 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
+        <!-- Alpine.js -->
+        {{-- <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script> --}}
+
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
@@ -22,18 +25,11 @@
                 </aside>
                 <div class="flex flex-col w-full h-full">
                     <livewire:layout.navigation />
-                    <!-- Page Heading -->
-                    {{-- @if (isset($header))
-                        <header class="shadow bg-sky-500">
-                            <div class="px-4 py-6 mx-auto max-w-7xl sm:px-6 lg:px-8">
-                                {{ $header }}
-                            </div>
-                        </header>
-                    @endif --}}
-
                     <!-- Page Content -->
-                    <main class="overflow-scroll pl-52">
-                        {{ $slot }}
+                    <main class="mt-4 overflow-scroll pl-52">
+                        <div class="mx-auto space-y-6 max-w-[95rem] sm:px-6 lg:px-8">
+                            {{ $slot }}
+                        </div>
                     </main>
                 </div>
             </div>
