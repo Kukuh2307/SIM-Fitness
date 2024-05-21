@@ -6,7 +6,7 @@
   <title>Landing Page</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="text-white bg-slate-900">
+<body class="text-white bg-slate-900 font-helvetica">
 
   <!-- Navbar -->
   <nav class="p-4 bg-red-600">
@@ -82,7 +82,11 @@
   </section>
   
   <!-- Instructor Section -->
+<<<<<<< HEAD
+  <section id="instuctor" class="py-20 bg-red-200">
+=======
   <section id="instuctor" class="py-20 bg-slate-900">
+>>>>>>> 677b5380dd4c516e6f7139712ef7dc956737cca9
   <div class="container mx-auto text-center">
       <h2 class="mb-8 text-4xl font-bold">Meet Personal Trainer</h2>
       <div class="grid grid-cols-1 gap-8 md:grid-cols-4">
