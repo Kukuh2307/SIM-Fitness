@@ -93,6 +93,7 @@ class CreateInformasi extends Component
         if ($informasi) {
             $informasi->delete();
             session()->flash('success', 'Informasi Berhasil dihapus');
+            $this->dispatch('informasiDeleted');
             // Optionally, you can reset form fields if needed
             $this->reset(['informasi_id', 'judul', 'deskripsi', 'btnUpdate']);
         } else {
