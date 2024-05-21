@@ -6,13 +6,13 @@
   <title>Landing Page</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="text-white bg-slate-900">
+<body class="text-white bg-slate-900 font-helvetica">
 
   <!-- Navbar -->
   <nav class="p-4 bg-red-600">
     <div class="container flex items-center justify-between mx-auto">
       <div class="logo-container flex items-center justify-between h-10">
-      <img src="{{ asset('img/logo.png') }}" alt="Logo" class="h-full w-auto">
+      <img src="{{ asset('img/logoe.png') }}" alt="Logo" class="h-full w-auto">
       <a href="#" class="text-2xl font-bold ml-2">Fit Banget</a>
       </div>
       <ul class="flex space-x-6">
@@ -82,7 +82,7 @@
   </section>
   
   <!-- Instructor Section -->
-  <section id="instuctor" class="py-20 bg-slate-900">
+  <section id="instuctor" class="py-20 bg-red-200">
   <div class="container mx-auto text-center">
       <h2 class="mb-8 text-4xl font-bold">Meet Personal Trainer</h2>
       <div class="grid grid-cols-1 gap-8 md:grid-cols-4">
