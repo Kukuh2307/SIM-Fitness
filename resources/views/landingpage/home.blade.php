@@ -12,7 +12,7 @@
   <nav class="p-4 bg-red-600">
     <div class="container flex items-center justify-between mx-auto">
       <div class="logo-container flex items-center justify-between h-10">
-      <img src="{{ asset('img/logo.png') }}" alt="Logo" class="h-full w-auto">
+      <img src="{{ asset('img/logoe.png') }}" alt="Logo" class="h-full w-auto">
       <a href="#" class="text-2xl font-bold ml-2">Fit Banget</a>
       </div>
       <ul class="flex space-x-6">
@@ -133,7 +133,7 @@
   <!-- Footer -->
   <footer class="py-4 bg-black">
     <div class="container mx-auto text-center">
-      <p>&copy; 2024 BrandName. All rights reserved.</p>
+      <p>&copy; 2024 Fit Banget. All rights reserved.</p>
     </div>
   </footer>
 
