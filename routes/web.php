@@ -5,6 +5,7 @@ use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Livewire\InformasiTable;
 use App\Livewire\Informasi;
+use App\Livewire\Member;
 
 Route::view('/', 'landingpage.home');
 
@@ -27,5 +28,6 @@ Route::view('profile', 'profile')
 
 Route::get('home', [HomeController::class, 'index'])->name('home');
 Route::get('/informasi', [Informasi::class, 'render'])->name('employee');
+Route::get('admin.member', [Member::class, 'render'])->name('admin.member');
 
 require __DIR__ . '/auth.php';

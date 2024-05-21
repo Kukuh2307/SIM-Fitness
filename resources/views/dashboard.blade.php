@@ -6,9 +6,9 @@
     </x-slot>
 
     <div class="h-screen mt-10">
-        <div class="mx-auto max-w-[95rem] sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-[95rem] sm:px-6 lg:px-20">
             <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
-                <div class="grid grid-cols-1 gap-6 mb-8 md:grid-cols-2 lg:grid-cols-4">
+                <div class="grid grid-cols-1 gap-6 mb-8 md:grid-cols-2 lg:grid-cols-4 p-3">
                     <!-- Members Card -->
                     <div class="p-4 bg-white rounded-lg shadow-md">
                         <div class="flex items-center">
