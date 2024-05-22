@@ -1,3 +1,3 @@
 <?php
-echo password_hash('julia1208', PASSWORD_BCRYPT);
+echo password_hash('aziz123', PASSWORD_BCRYPT);
 ?>

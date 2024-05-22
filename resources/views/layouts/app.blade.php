@@ -32,7 +32,7 @@
                     @endif --}}
 
                     <!-- Page Content -->
-                    <main class="overflow-scroll pl-52">
+                    <main class="overflow-scroll pl-64 pr-8 pt-8">
                         {{ $slot }}
                     </main>
                 </div>
