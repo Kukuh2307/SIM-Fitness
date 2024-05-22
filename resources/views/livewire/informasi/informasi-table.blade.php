@@ -18,8 +18,8 @@
                     <td class="max-w-xs px-6 py-4 truncate">{{ $information->Deskripsi }}</td>
                     <td class="px-6 py-4 whitespace-nowrap">
                         <div class="flex space-x-2">
-                            <a wire:click='edit({{ $information->id }})' class="text-blue-500 hover:text-blue-700">Edit</a>
-                            <a wire:click='delete({{ $information->id }})' class="text-red-500 hover:text-red-700">Delete</a>
+                            <a wire:click='edit({{ $information->id }})' class="text-blue-500 cursor-pointer hover:text-blue-700">Edit</a>
+                            <a wire:click='delete({{ $information->id }})' class="text-red-500 cursor-pointer hover:text-red-700">Delete</a>
                         </div>
                     </td>
                 </tr>
