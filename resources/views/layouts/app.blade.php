@@ -11,8 +11,6 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
-        <!-- Alpine.js -->
-        {{-- <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script> --}}
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -34,5 +32,16 @@
                 </div>
             </div>
         </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                setTimeout(function() {
+                    let alerts = document.querySelectorAll('.alert');
+                    alerts.forEach(function(alert) {
+                        alert.style.display = 'none';
+                    });
+                }, 3000); // 3000 ms = 3 seconds
+            });
+        </script>
     </body>
 </html>
