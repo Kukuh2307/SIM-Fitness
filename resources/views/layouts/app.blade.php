@@ -24,7 +24,6 @@
                 <div class="flex flex-col w-full h-full">
                     <livewire:layout.navigation />
                     <!-- Page Content -->
-<<<<<<< HEAD
                     <main class="mt-4 overflow-scroll pl-52">
                         <div class="mx-auto space-y-6 max-w-[95rem] sm:px-6 lg:px-8">
                             {{ $slot }}
