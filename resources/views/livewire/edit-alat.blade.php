@@ -26,7 +26,8 @@
                 <label for="foto">Foto</label>
                 <input accept="image/png, image/jpeg, image/jpg" type="file" wire:model="Foto" name="foto">
             </div>
-            <button wire:click.prevent="create" type="submit" class="px-6 py-2 bg-red-500 text-white rounded-full">Save</button>
+            <button wire:click.prevent="update()" type="submit" class="px-6 py-2 bg-red-500 text-white rounded-full">Save</button>
         </form>
+       <a href="/admin.listing-alat">kembali</a>
     </x-app-layout>
 </div>

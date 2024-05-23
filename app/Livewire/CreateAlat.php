@@ -25,7 +25,7 @@ class CreateAlat extends Component
 
     public function create(){
         
-        $this->valid_alatate([
+        $this->validate([
             'id_alat'=>'required',
             'Nama_Alat'=> 'required',
             'Jumlah'=> 'required',

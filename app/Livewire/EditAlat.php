@@ -38,8 +38,8 @@ class EditAlat extends Component
     }
 
     public function update(){
-        $this->valid_alatate([
-            'id_alat'=>'required',
+        $this->validate([
+            
             'Nama_Alat'=> 'required',
             'Jumlah'=> 'required',
             'Kondisi_Alat'=> 'required',
@@ -51,25 +51,25 @@ class EditAlat extends Component
 
         try {
             ListAlat::where('id_alat',$this->id_alat)->update([
-                'id_alat' => $this->id_alat,
                 'Nama_Alat' => $this->Nama_Alat,
                 'Jumlah' => $this->Jumlah,
                 'Kondisi_Alat' => $this->Kondisi_Alat,
                 'Foto' => $this->Foto,
                 'Merk' => $this->Merk,
             ]);
+
+           
             
         } catch (\Exception $th) {
             dd($th);
         }
+       
     }
 
     
 
     public function render()
     {
-        return view('livewire.edit-alat', [
-            'id_alat'=>$this->id_alat,
-        ]);
+        return view('livewire.edit-alat');
     }
 }
