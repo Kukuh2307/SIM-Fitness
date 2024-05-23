@@ -33,6 +33,7 @@ models:
     Waktu_Selesai: datetime
     Hari: enum('Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu')
     Kuota: int
+    Foto: string
 
   Instruktur:
     id: increment

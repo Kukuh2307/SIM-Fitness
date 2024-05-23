@@ -40,7 +40,7 @@
                     alerts.forEach(function(alert) {
                         alert.style.display = 'none';
                     });
-                }, 3000); // 3000 ms = 3 seconds
+                }, 5000);
             });
         </script>
     </body>

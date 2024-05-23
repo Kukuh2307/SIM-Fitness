@@ -22,7 +22,7 @@
             <a href="{{ url('admin.transaksi') }}">Transaksi</a>
         </li>
         <li class="px-4 py-5 text-xl font-bold hover:bg-red-700">
-            <a href="{{ url('admin.kelas') }}">kelas</a>
+            <a href="{{ url('kelas') }}">kelas</a>
         </li>
         <li class="px-4 py-5 text-xl font-bold hover:bg-red-700">
             <a href="{{ url('informasi') }}">Informasi</a>

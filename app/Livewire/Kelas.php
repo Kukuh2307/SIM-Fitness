@@ -8,6 +8,6 @@ class Kelas extends Component
 {
     public function render()
     {
-        return view('livewire.kelas');
+        return view('kelas');
     }
 }

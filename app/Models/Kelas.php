@@ -23,6 +23,7 @@ class Kelas extends Model
         'Waktu_Selesai',
         'Hari',
         'Kuota',
+        'Foto',
     ];
 
     /**
@@ -31,7 +32,7 @@ class Kelas extends Model
      * @var array
      */
     protected $casts = [
-        'Waktu_Mulai' => 'datetime',
-        'Waktu_Selesai' => 'datetime',
+        'Waktu_Mulai' => 'time',
+        'Waktu_Selesai' => 'time',
     ];
 }

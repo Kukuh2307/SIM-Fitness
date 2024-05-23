@@ -23,7 +23,8 @@ class KelasSeeder extends Seeder
                 'Waktu_Mulai' => $faker->dateTime,
                 'Waktu_Selesai' => $faker->dateTime,
                 'Hari' => $faker->name,
-                'Kuota' => $faker->numberBetween(1, 40)
+                'Kuota' => $faker->numberBetween(1, 40),
+                'Foto' => $faker->imageUrl,
             ]);
         }
     }
