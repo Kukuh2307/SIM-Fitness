@@ -21,6 +21,7 @@ return new class extends Migration
             $table->dateTime('Waktu_Selesai');
             $table->string('Hari');
             $table->string('Kuota');
+            $table->string('Foto');
             $table->timestamps();
         });
     }

@@ -32,7 +32,7 @@ class Kelas extends Model
      * @var array
      */
     protected $casts = [
-        'Waktu_Mulai' => 'time',
-        'Waktu_Selesai' => 'time',
+        'Waktu_Mulai' => 'date:H:i:s',
+        'Waktu_Selesai' => 'date:H:i:s',
     ];
 }

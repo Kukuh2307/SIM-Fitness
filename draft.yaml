@@ -37,7 +37,6 @@ models:
 
   Instruktur:
     id: increment
-    id_Kelas: int
     Nama: string unique
     Email: string
     Foto: string
