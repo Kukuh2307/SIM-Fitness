@@ -30,7 +30,7 @@
                                         <td class="max-w-xs px-6 py-4 truncate">{{ $alat->Kondisi_Alat }}</td>
                                         <td class="max-w-xs px-6 py-4 truncate">{{ $alat->Merk }}</td>
                                         <td class="max-w-xs px-6 py-4 truncate">
-                                            <img src="{{asset('storage/uploads/'.$alat->Nama_Alat)}}" alt="">
+                                            <img src="{{asset('storage/'.$alat->Foto)}}" alt="">
                                         </td>
                                         <td class="flex gap-2 px-6 py-4 items-center">
                                             

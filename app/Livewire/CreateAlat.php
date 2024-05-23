@@ -21,7 +21,7 @@ class CreateAlat extends Component
 
     public $Merk;
 
-   
+   public $filename;
 
     public function create(){
         
@@ -35,6 +35,9 @@ class CreateAlat extends Component
         ]);
 
         try {
+            if($this->Foto){
+                $filename = $this->Foto->store('uploads', 'public');
+            }
 
             $new_alat = new ListAlat;
             $new_alat->id_alat = $this->id_alat;
@@ -42,12 +45,10 @@ class CreateAlat extends Component
             $new_alat->Jumlah = $this->Jumlah;
             $new_alat->Kondisi_Alat = $this->Kondisi_Alat;
             $new_alat->Merk = $this->Merk;
-            $new_alat->Foto = $this->Foto;
+            $new_alat->Foto = $filename;
             $new_alat->save();
 
-            if($this->Foto){
-                $this->Foto->store('uploads', 'public');
-            }
+           
     
     
             $this->reset('id_alat','Nama_Alat', 'Jumlah', 'Kondisi_Alat', 'Merk', 'Foto');

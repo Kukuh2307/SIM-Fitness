@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use App\Models\ListAlat;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Attributes\Rule;
 use Livewire\WithFileUploads;
 
@@ -20,10 +21,10 @@ class EditAlat extends Component
     public $Jumlah;
     public $Kondisi_Alat;
 
-    #[Rule('nullable|sometimes|image|max:1024')]
     public $Foto;
-
+   
     public $Merk;
+
 
     public function mount($id_alat){
         $this->id_alat = $id_alat;
@@ -37,34 +38,42 @@ class EditAlat extends Component
             $this->Foto = $this->data_alat->Foto;
     }
 
-    public function update(){
-        $this->validate([
-            
-            'Nama_Alat'=> 'required',
-            'Jumlah'=> 'required',
-            'Kondisi_Alat'=> 'required',
-            'Foto'=> 'required',
-            'Merk'=> 'required',
+    public function update()
+{
+    $this->validate([
+        'Nama_Alat' => 'required',
+        'Jumlah' => 'required',
+        'Kondisi_Alat' => 'required',
+        'Foto' => 'nullable|image|max:1024',
+        'Merk' => 'required',
+    ]);
+
+    try {
+        if ($this->Foto) {
+            if ($this->Foto->isFile()) {
+                Storage::delete('public/' . $this->data_alat->Foto);
+            }
+            $filename = $this->Foto->store('uploads', 'public');
+        } else {
+            $filename = $this->data_alat->Foto;
+        }
+
+        ListAlat::where('id_alat', $this->id_alat)->update([
+            'Nama_Alat' => $this->Nama_Alat,
+            'Jumlah' => $this->Jumlah,
+            'Kondisi_Alat' => $this->Kondisi_Alat,
+            'Foto' => $filename,
+            'Merk' => $this->Merk,
         ]);
 
+        $this->reset('Foto');
+        $this->Foto = $filename;
 
-
-        try {
-            ListAlat::where('id_alat',$this->id_alat)->update([
-                'Nama_Alat' => $this->Nama_Alat,
-                'Jumlah' => $this->Jumlah,
-                'Kondisi_Alat' => $this->Kondisi_Alat,
-                'Foto' => $this->Foto,
-                'Merk' => $this->Merk,
-            ]);
-
-           
-            
-        } catch (\Exception $th) {
-            dd($th);
-        }
-       
+        return redirect()->to('/admin.listing-alat');
+    } catch (\Exception $th) {
+        dd($th);
     }
+}
 
     
 

@@ -5,7 +5,9 @@ namespace App\Livewire;
 use Livewire\Component;
 
 use App\Models\ListAlat;
+use Illuminate\Support\Facades\Storage;
 use Livewire\WithPagination;
+
 
 class Alat extends Component
 {
@@ -16,10 +18,15 @@ class Alat extends Component
 
     public function destroy($id_alat){
        
-       $alat = ListAlat::where('id_alat', $id_alat);
-    //    Storage::delete('public/upload/'. $alat->Foto);
+       $alat = ListAlat::where('id_alat', $id_alat)->first();
+        if ($alat) {
+        
+        if ($alat->Foto) {
+            Storage::delete('public/' . $alat->Foto);
+        }
+        }
        $alat->delete();
-       echo "<script>window.location='/admin.listing-alat'</script>";
+        return redirect()->to('/admin.listing-alat');
     }
    
 
