@@ -3,9 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\Admin\AdminController;
-use App\Http\Livewire\InformasiTable;
+
+use App\Livewire\Alat;
+use App\Livewire\EditAlat;
 use App\Livewire\Informasi;
-use App\Livewire\Member;
+
 
 Route::view('/', 'landingpage.home');
 
@@ -28,6 +30,9 @@ Route::view('profile', 'profile')
 
 Route::get('home', [HomeController::class, 'index'])->name('home');
 Route::get('/informasi', [Informasi::class, 'render'])->name('employee');
-Route::get('admin.member', [Member::class, 'render'])->name('admin.member');
+Route::get('admin.listing-alat', [Alat::class, 'render'])->name('admin.listing-alat');
 
+Route::delete('admin.listing-alat/{id_alat}', [Alat::class, 'destroy'])->name('alat.destroy');
+
+Route::get('admin.edit/{id_alat}',EditAlat::class)->name('admin.edit');
 require __DIR__ . '/auth.php';
