@@ -19,7 +19,7 @@ new #[Layout('layouts.guest')] class extends Component
     public $foto; // Properti untuk menangani file yang diunggah
     public string $tanggal_bergabung = '';
     public string $tanggal_berakhir = '';
-    public string $role = 'user';
+    public string $role = 'admin';
 
     /**
      * Handle an incoming registration request.
