@@ -35,4 +35,9 @@ class Kelas extends Model
         'Waktu_Mulai' => 'date:H:i:s',
         'Waktu_Selesai' => 'date:H:i:s',
     ];
+
+    public function instruktur()
+    {
+        return $this->belongsTo(Instruktur::class, 'id_Instruktur', 'id');
+    }
 }

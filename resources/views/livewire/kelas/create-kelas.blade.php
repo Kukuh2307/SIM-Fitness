@@ -12,35 +12,56 @@
         </div>
     @endif
 
-    <form wire:submit.prevent="store">
+    <form wire:submit.prevent="{{ $btnUpdate ? 'update' : 'store' }}">
         @csrf
         <div class="flex items-start gap-4">
             <div class="flex flex-col w-full gap-3 md:w-1/2">
-                <input type="text" name="nama_kelas" wire:model="nama_kelas" class="w-full p-2 text-black bg-white rounded-lg" placeholder="Nama Kelas" wire:validation='required'>
-                <textarea name="deskripsi" wire:model.lazy="deskripsi" class="w-full p-2 text-black bg-white rounded-lg" placeholder="Deskripsi" wire:validation='required' cols="5" rows="5"></textarea>
-                <input type="number" name="biaya" wire:model.lazy="biaya" class="w-full p-2 text-black bg-white rounded-lg" placeholder="Biaya"wire:validation='required'>
+                <input type="text" name="nama_kelas" wire:model.lazy="nama_kelas" class="w-full p-2 text-black bg-white rounded-lg" placeholder="Nama Kelas">
+                @error('nama_kelas') <span class="text-sm text-red-600">{{ $message }}</span> @enderror
 
-                <select name="id_instruktur" wire:model.lazy="id_instruktur" class="w-full p-2 text-black bg-white rounded-lg"wire:validation='required'>
+                <textarea name="deskripsi" wire:model.lazy="deskripsi" class="w-full p-2 text-black bg-white rounded-lg" placeholder="Deskripsi" cols="5" rows="5"></textarea>
+                @error('deskripsi') <span class="text-sm text-red-600">{{ $message }}</span> @enderror
+
+                <input type="number" name="biaya" wire:model.lazy="biaya" class="w-full p-2 text-black bg-white rounded-lg" placeholder="Biaya">
+                @error('biaya') <span class="text-sm text-red-600">{{ $message }}</span> @enderror
+
+                <select name="id_instruktur" wire:model.lazy="id_instruktur" class="w-full p-2 text-black bg-white rounded-lg">
                     <option value="">Pilih Instruktur</option>
                     @foreach($instrukturs as $instruktur)
                         <option value="{{ $instruktur->id }}">{{ $instruktur->Nama }}</option>
                     @endforeach
                 </select>
+                @error('id_instruktur') <span class="text-sm text-red-600">{{ $message }}</span> @enderror
             </div>
             <div class="flex flex-col w-full gap-3 md:w-1/2">
-                <input type="text" name="waktu_mulai" wire:model.lazy="waktu_mulai" class="w-full p-2 text-black bg-white rounded-lg" placeholder="Waktu Mulai (format HH:MM)"wire:validation='required'>
-                <input type="text" name="waktu_selesai" wire:model.lazy="waktu_selesai" class="w-full p-2 text-black bg-white rounded-lg" placeholder="Waktu Selesai (format HH:MM)"wire:validation='required'>
-                <select name="hari" wire:model.lazy="hari" class="w-full p-2 text-black bg-white rounded-lg" wire:validation='required'>
+                <input type="text" name="waktu_mulai" wire:model.lazy="waktu_mulai" class="w-full p-2 text-black bg-white rounded-lg" placeholder="Waktu Mulai (format HH:MM)">
+                @error('waktu_mulai') <span class="text-sm text-red-600">{{ $message }}</span> @enderror
+
+                <input type="text" name="waktu_selesai" wire:model.lazy="waktu_selesai" class="w-full p-2 text-black bg-white rounded-lg" placeholder="Waktu Selesai (format HH:MM)">
+                @error('waktu_selesai') <span class="text-sm text-red-600">{{ $message }}</span> @enderror
+
+                <select name="hari" wire:model.lazy="hari" class="w-full p-2 text-black bg-white rounded-lg">
                     <option value="">Pilih Hari</option>
                     @foreach($days as $day)
                         <option value="{{ $day }}">{{ $day }}</option>
                     @endforeach
                 </select>
-                <input type="number" name="kuota" wire:model.lazy="kuota" class="w-full p-2 text-black bg-white rounded-lg" placeholder="Kuota"wire:validation='required'>
+                @error('hari') <span class="text-sm text-red-600">{{ $message }}</span> @enderror
+
+                <input type="number" name="kuota" wire:model.lazy="kuota" class="w-full p-2 text-black bg-white rounded-lg" placeholder="Kuota">
+                @error('kuota') <span class="text-sm text-red-600">{{ $message }}</span> @enderror
+
+                <input type="file" name="foto" wire:model="foto" class="w-full p-2 text-black bg-white rounded-lg">
+                @if($btnUpdate && $foto)
+                    <img src="{{ asset('storage/'.$foto) }}" class="w-32 h-32 mt-2 rounded-md" alt="Foto Kelas">
+                @endif
+                @error('foto') <span class="text-sm text-red-600">{{ $message }}</span> @enderror
             </div>
         </div>
         <div class="flex justify-end mt-3">
-            <button type="submit" class="px-4 py-2 text-white bg-red-600 rounded-full">Create</button>
+            <button type="submit" class="px-4 py-2 text-white bg-red-600 rounded-full">
+                {{ $btnUpdate ? 'Update' : 'Create' }}
+            </button>
         </div>
     </form>
 </div>
