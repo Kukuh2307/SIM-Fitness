@@ -19,6 +19,22 @@ class   AdminController extends Controller
     /**
      * Show the form for creating a new resource.
      */
+
+     public function members()
+     {
+         return view('members');
+     }
+     
+     public function listAlat()
+     {
+         return view('list-alat');
+     }
+     
+     public function metodePembayaran()
+     {
+         return view('metode-pembayaran');
+     }
+     
     public function create()
     {
         //
