@@ -65,7 +65,6 @@
 
                 <input type="number" name="kuota" wire:model.lazy="kuota" class="w-full p-2 text-black bg-white rounded-lg" placeholder="Kuota">
                 @error('kuota') <span class="text-sm text-red-600">{{ $message }}</span> @enderror
-
                 @if($btnUpdate)
                     <input type="file" name="foto" wire:model="foto" class="w-full p-2 text-black bg-white rounded-lg" value="{{ $foto }}">
                     <img src="{{ asset('storage/'.$fotoLama) }}" class="w-32 h-32 mt-2 rounded-md" alt="Foto Kelas">

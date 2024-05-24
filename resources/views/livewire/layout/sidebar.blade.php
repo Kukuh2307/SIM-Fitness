@@ -22,12 +22,10 @@
             <a href="{{ url('admin.transaksi') }}" class="w-full text-center">Transaksi</a>
         </li>
         <li class="flex items-center justify-center px-4 py-5 text-xl font-bold hover:bg-red-700">
-            <a href="{{ url('admin.kelas') }}" class="w-full text-center">kelas</a>
->>>>>>> julia
+            <a href="{{ url('kelas') }}" class="w-full text-center">kelas</a>
         </li>
         <li class="flex items-center justify-center px-4 py-5 text-xl font-bold hover:bg-red-700">
             <a href="{{ url('informasi') }}" class="w-full text-center">Informasi</a>
         </li>
-        <!-- Tambahkan link lainnya sesuai kebutuhan -->
     </ul>
 </div>
