@@ -27,16 +27,17 @@
 
                 <select name="id_instruktur" wire:model.lazy="id_instruktur" class="w-full p-2 text-black bg-white rounded-lg">
                     <option value="">Pilih Instruktur</option>
-                    @if($btnUpdate && $id_instruktur)
-                    @foreach($instrukturs as $instruktur)
-                    <option value="{{ $instruktur->id }}" selected>{{ $instruktur->Nama }}</option>
-                @endforeach
-                    @else                        
+                    @if($btnUpdate)
+                        @foreach($instrukturs as $instruktur)
+                            <option value="{{ $instruktur->id }}" @if($id_instruktur == $instruktur->id) selected @endif>{{ $instruktur->Nama }}</option>
+                        @endforeach
+                    @else
                         @foreach($instrukturs as $instruktur)
                             <option value="{{ $instruktur->id }}">{{ $instruktur->Nama }}</option>
                         @endforeach
                     @endif
                 </select>
+                
                 @error('id_instruktur') <span class="text-sm text-red-600">{{ $message }}</span> @enderror
             </div>
             <div class="flex flex-col w-full gap-3 md:w-1/2">
@@ -53,7 +54,7 @@
                         @if ($d == $hari)
                             <option value="{{ $hari }}" selected>{{ $hari }}</option>
                         @endif
-                            <option value="{{ $d }}" selected>{{ $d }}</option>
+                            <option value="{{ $d }}">{{ $d }}</option>
                         @endforeach
                     @else
                         @foreach($days as $d)

@@ -26,7 +26,6 @@ class CreateKelas extends Component
     public $instrukturs = [];
     public $days = ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"];
     public $btnUpdate = false;
-
     protected $listeners = [
         'kelas-edit' => 'loadKelas',
         'kelas-delete' => 'delete',
@@ -173,9 +172,9 @@ class CreateKelas extends Component
     }
     public function render()
     {
-        $instruktur = \App\Models\Instruktur::all();
+        $this->instrukturs = Instruktur::all();
         return view('livewire.kelas.create-kelas', [
-            'instrukturs' => $instruktur,
+            'instrukturs' => $this->instrukturs,
             'days' => $this->days,
         ]);
     }
