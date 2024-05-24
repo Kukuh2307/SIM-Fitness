@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('Foto');
             $table->dateTime('Tanggal_bergabung');
             $table->dateTime('Tanggal_Berakhir');
-            $table->enum('Role', ['admin', 'user'])->default('user');
+            $table->enum('Role', ['admin', 'user', 'member'])->default('user');
             $table->timestamps();
         });
 
