@@ -27,9 +27,15 @@
 
                 <select name="id_instruktur" wire:model.lazy="id_instruktur" class="w-full p-2 text-black bg-white rounded-lg">
                     <option value="">Pilih Instruktur</option>
+                    @if($btnUpdate && $id_instruktur)
                     @foreach($instrukturs as $instruktur)
-                        <option value="{{ $instruktur->id }}">{{ $instruktur->Nama }}</option>
-                    @endforeach
+                    <option value="{{ $instruktur->id }}" selected>{{ $instruktur->Nama }}</option>
+                @endforeach
+                    @else                        
+                        @foreach($instrukturs as $instruktur)
+                            <option value="{{ $instruktur->id }}">{{ $instruktur->Nama }}</option>
+                        @endforeach
+                    @endif
                 </select>
                 @error('id_instruktur') <span class="text-sm text-red-600">{{ $message }}</span> @enderror
             </div>
@@ -42,18 +48,29 @@
 
                 <select name="hari" wire:model.lazy="hari" class="w-full p-2 text-black bg-white rounded-lg">
                     <option value="">Pilih Hari</option>
-                    @foreach($days as $day)
-                        <option value="{{ $day }}">{{ $day }}</option>
-                    @endforeach
+                    @if ($btnUpdate && $hari)
+                        @foreach($days as $d)
+                        @if ($d == $hari)
+                            <option value="{{ $hari }}" selected>{{ $hari }}</option>
+                        @endif
+                            <option value="{{ $d }}" selected>{{ $d }}</option>
+                        @endforeach
+                    @else
+                        @foreach($days as $d)
+                            <option value="{{ $d }}">{{ $d }}</option>
+                        @endforeach
+                    @endif
                 </select>
                 @error('hari') <span class="text-sm text-red-600">{{ $message }}</span> @enderror
 
                 <input type="number" name="kuota" wire:model.lazy="kuota" class="w-full p-2 text-black bg-white rounded-lg" placeholder="Kuota">
                 @error('kuota') <span class="text-sm text-red-600">{{ $message }}</span> @enderror
 
-                <input type="file" name="foto" wire:model="foto" class="w-full p-2 text-black bg-white rounded-lg">
-                @if($btnUpdate && $foto)
-                    <img src="{{ asset('storage/'.$foto) }}" class="w-32 h-32 mt-2 rounded-md" alt="Foto Kelas">
+                @if($btnUpdate)
+                    <input type="file" name="foto" wire:model="foto" class="w-full p-2 text-black bg-white rounded-lg" value="{{ $foto }}">
+                    <img src="{{ asset('storage/'.$fotoLama) }}" class="w-32 h-32 mt-2 rounded-md" alt="Foto Kelas">
+                @else
+                    <input type="file" name="fotoLama" wire:model="fotoLama" class="w-full p-2 text-black bg-white rounded-lg">
                 @endif
                 @error('foto') <span class="text-sm text-red-600">{{ $message }}</span> @enderror
             </div>
