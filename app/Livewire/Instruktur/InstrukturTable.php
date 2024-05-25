@@ -9,6 +9,20 @@ use Livewire\WithPagination;
 class InstrukturTable extends Component
 {
     use WithPagination;
+    public $dataInstruktur;
+    protected $listeners = [
+        'InstrukturAdded', 'InstrukturUpdated', 'InstrukturDeleted' => 'render'
+    ];
+
+    public function edit($id)
+    {
+        $this->dispatch('instruktur-edit', ['id' => $id]);
+    }
+
+    public function delete($id)
+    {
+        $this->dispatch('instruktur-delete', ['id' => $id]);
+    }
 
     public function render()
     {

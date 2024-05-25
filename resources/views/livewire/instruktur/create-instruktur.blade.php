@@ -32,12 +32,10 @@
                 <input type="number" name="biaya" wire:model.lazy="biaya" class="w-full p-2 text-black bg-white rounded-lg" placeholder="Biaya">
                 @error('biaya') <span class="text-sm text-red-600">{{ $message }}</span> @enderror
                 @if($btnUpdate)
-                    <input type="file" name="foto" wire:model="foto" class="w-full p-2 text-black bg-white rounded-lg">
-                    @if ($fotoLama)
-                        <img src="{{ asset('storage/'.$fotoLama) }}" class="w-32 h-32 mt-2 rounded-md" alt="Foto Instruktur">
-                    @endif
+                    <input type="file" name="foto" wire:model="foto" class="w-full p-2 text-black bg-white rounded-lg" value="{{ $foto }}">
+                    <img src="{{ asset('storage/'.$fotoLama) }}" class="w-32 h-32 mt-2 rounded-md" alt="Foto Instruktur">
                 @else
-                    <input type="file" name="foto" wire:model="foto" class="w-full p-2 text-black bg-white rounded-lg">
+                    <input type="file" name="fotoLama" wire:model="fotoLama" class="w-full p-2 text-black bg-white rounded-lg">
                 @endif
                 @error('foto') <span class="text-sm text-red-600">{{ $message }}</span> @enderror
             </div>
