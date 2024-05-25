@@ -62,7 +62,7 @@ class CreateKelas extends Component
             'waktu_selesai' => 'required|date_format:H:i',
             'hari' => 'required',
             'kuota' => 'required',
-            'foto' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'fotoLama' => 'required|image|mimes:jpeg,png,jpg|max:2048',
         ];
         $message = [
             'nama.required' => 'Nama harus diisi',
@@ -75,10 +75,10 @@ class CreateKelas extends Component
             'waktu_selesai.date_format' => 'Waktu selesai harus berformat HH:MM',
             'hari.required' => 'hari harus diisi',
             'kuota.required' => 'Kuota harus diisi',
-            'foto.required' => 'Foto harus diisi',
-            'foto.image' => 'File harus berupa gambar',
-            'foto.max' => 'File terlalu besar',
-            'foto.mimes' => 'File harus jpeg,png,jpg',
+            'fotoLama.required' => 'Foto harus diisi',
+            'fotoLama.image' => 'File harus berupa gambar',
+            'fotoLama.max' => 'File terlalu besar',
+            'fotoLama.mimes' => 'File harus jpeg,png,jpg',
         ];
 
         $this->validate($rules, $message);
@@ -92,7 +92,7 @@ class CreateKelas extends Component
             'Waktu_Selesai' => $this->waktu_selesai,
             'Hari' => $this->hari,
             'Kuota' => $this->kuota,
-            'Foto' => $this->foto->store('images', 'public'),
+            'Foto' => $this->fotoLama->store('images', 'public'),
         ]);
 
         $this->reset(['nama_kelas', 'deskripsi', 'biaya', 'id_instruktur', 'waktu_mulai', 'waktu_selesai', 'hari', 'kuota', 'foto']);
