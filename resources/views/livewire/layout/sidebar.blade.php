@@ -16,7 +16,7 @@
             <a href="{{ url('metode-pembayaran') }}" class="w-full text-center">Metode Pembayaran</a>
         </li>
         <li class="flex items-center justify-center px-4 py-5 text-xl font-bold hover:bg-red-700">
-            <a href="{{ url('admin.instruktur') }}" class="w-full text-center">Instruktur</a>
+            <a href="{{ url('instruktur') }}" class="w-full text-center">Instruktur</a>
         </li>
         <li class="flex items-center justify-center px-4 py-5 text-xl font-bold hover:bg-red-700">
             <a href="{{ url('admin.transaksi') }}" class="w-full text-center">Transaksi</a>
