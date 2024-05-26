@@ -9,13 +9,12 @@
 <body class="text-white bg-slate-900 font-helvetica">
 
   <!-- Navbar -->
-  <nav class="p-4 bg-red-600">
+  <nav class="p-4 bg-gradient-to-tr from-red-600 to-slate-900">
     <div class="container flex items-center justify-between mx-auto">
       <div class="logo-container flex items-center justify-between h-10">
       <img src="{{ asset('img/logoe.png') }}" alt="Logo" class="h-full w-auto">
-      <a href="#" class="text-2xl font-bold ml-2">Fit Banget</a>
       </div>
-      <ul class="flex space-x-6">
+      <ul class="flex space-x-6 font-bold">
         <li><a href="#home" class="hover:text-gray-300">Home</a></li>
         <li><a {{ url('about') }}  class="hover:text-gray-300">About</a></li>
         <li><a {{ url('service') }} class="hover:text-gray-300">Services</a></li>
@@ -49,7 +48,7 @@
   </section>
 
   <!-- Services Section -->
-  <section id="services" class="py-20 bg-red-600">
+  <section id="services" class="py-20 bg-gradient-to-tr from-red-600 to-slate-900">
     <div class="container mx-auto text-center">
       <h2 class="mb-8 text-4xl font-bold">Our Training Program</h2>
       <div class="grid grid-cols-1 gap-8 md:grid-cols-4">
@@ -82,11 +81,7 @@
   </section>
   
   <!-- Instructor Section -->
-<<<<<<< HEAD
-  <section id="instuctor" class="py-20 bg-red-200">
-=======
   <section id="instuctor" class="py-20 bg-slate-900">
->>>>>>> 677b5380dd4c516e6f7139712ef7dc956737cca9
   <div class="container mx-auto text-center">
       <h2 class="mb-8 text-4xl font-bold">Meet Personal Trainer</h2>
       <div class="grid grid-cols-1 gap-8 md:grid-cols-4">
@@ -117,21 +112,8 @@
   <!-- Contact Section -->
   <section id="contact" class="py-20 bg-slate-900">
     <div class="container mx-auto text-center">
-      <h2 class="mb-8 text-4xl font-bold">Contact Us</h2>
-      <p class="mb-8 text-lg">Have any questions? We'd love to hear from you.</p>
-      <form class="max-w-xl mx-auto">
-        <div class="mb-4">
-          <input type="text" class="w-full p-2 text-white bg-gray-800 rounded-lg" placeholder="Your Name">
-        </div>
-        <div class="mb-4">
-          <input type="email" class="w-full p-2 text-white bg-gray-800 rounded-lg" placeholder="Your Email">
-        </div>
-        <div class="mb-4">
-          <textarea class="w-full p-2 text-white bg-gray-800 rounded-lg" rows="4" placeholder="Your Message"></textarea>
-        </div>
-        <button type="submit" class="px-4 py-2 text-white bg-red-600 rounded-full">Send Message</button>
-      </form>
-    </div>
+      <h2 class="mb-8 text-4xl font-bold">Mau ngeGym Tanpa member?</h2>
+      <button>Gym harian</button>
   </section>
 
   <!-- Footer -->

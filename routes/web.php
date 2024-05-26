@@ -5,6 +5,7 @@ use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Livewire\InformasiTable;
 use App\Livewire\Informasi;
+use App\Http\Controllers\TransaksiController;
 
 Route::view('/', 'landingpage.home');
 
@@ -12,9 +13,12 @@ Route::view('/', 'landingpage.home');
 //     ->middleware(['auth', 'verified', 'admin'])
 //     ->name('dashboard');
 
-Route::get('/logout', [AdminController::class, 'logout'])->name('logout');
+Route::get('/logout', [AdminController::class, 'logout'])
+    ->name('logout');
 
-Route::get('dashboard', [AdminController::class, 'index'])->middleware(['auth', 'verified', 'admin'])->name('dashboard');
+Route::get('dashboard', [AdminController::class, 'index'])
+    ->middleware(['auth', 'verified', 'admin'])
+    ->name('dashboard');
 
 Route::view('profile', 'profile')
     ->middleware(['auth', 'admin'])
@@ -28,4 +32,5 @@ Route::view('profile', 'profile')
 Route::get('home', [HomeController::class, 'index'])->name('home');
 Route::get('/informasi', [Informasi::class, 'render'])->name('employee');
 
+Route::get('/transaksi', [TransaksiController::class, 'index'])->name('transaksi');
 require __DIR__ . '/auth.php';
