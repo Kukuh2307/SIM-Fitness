@@ -39,6 +39,12 @@ new #[Layout('layouts.guest')] class extends Component
 
 
 <div class="from-red-600 to-slate-800 bg-gradient-to-tr backdrop-blur-md w-screen h-screen">
+    <a 
+        href="/login"
+        class="flex items-center p-5 text-white ">
+        <p class="font-bold text-[25px]">&larr;</p>
+        <p class="font-bold"> Kembali</p>
+    </a>
     <div class="rounded-xl shadow-lg border-black border-1 shadow-slate-900 p-5 bg-white sm:w-[500px] fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
         <div>
             <p class="text-xl font-bold ">Reset Password</p>
