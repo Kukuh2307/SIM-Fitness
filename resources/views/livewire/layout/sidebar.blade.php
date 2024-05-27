@@ -19,7 +19,7 @@
             <a href="{{ url('instruktur') }}" class="w-full text-center">Instruktur</a>
         </li>
         <li class="flex items-center justify-center px-4 py-5 text-xl font-bold hover:bg-red-700">
-            <a href="{{ url('admin.transaksi') }}" class="w-full text-center">Transaksi</a>
+            <a href="{{ url('transaksi') }}" class="w-full text-center">Transaksi</a>
         </li>
         <li class="flex items-center justify-center px-4 py-5 text-xl font-bold hover:bg-red-700">
             <a href="{{ url('kelas') }}" class="w-full text-center">kelas</a>

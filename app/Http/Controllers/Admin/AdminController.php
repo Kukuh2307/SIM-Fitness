@@ -35,6 +35,10 @@ class   AdminController extends Controller
          return view('metode-pembayaran');
      }
      
+     public function transaksi()
+     {
+         return view('transaksi');
+     }
     public function create()
     {
         //
