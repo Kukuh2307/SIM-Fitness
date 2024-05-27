@@ -25,7 +25,10 @@
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">{{ $data->Nama_Kelas }}</td>
                     <td class="px-6 py-4 whitespace-nowrap">{{ $data->Biaya }}</td>
-                    <td class="px-6 py-4 whitespace-nowrap">{{ $data->instruktur->Nama }}</td>
+                    {{-- <td class="px-6 py-4 whitespace-nowrap">{{ $data->instruktur->Nama }}</td> --}}
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        {{ $data->instruktur?->Nama ?? 'No Instructor' }}
+                    </td>                    
                     <td class="px-6 py-4 whitespace-nowrap">{{ $data->Hari }}</td>
                     <td class="px-6 py-4 whitespace-nowrap">{{ $data->Kuota }}</td>
                     <td class="px-6 py-4 whitespace-nowrap">
