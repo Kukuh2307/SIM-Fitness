@@ -1,6 +1,21 @@
 <div class="overflow-x-auto">
+    <div class="flex justify-between mb-4">
+        <h1 class="text-2xl font-bold text-red-600">Transaksi</h1>
+        <div class="relative">
+            <input type="text" placeholder="Search" wire:model.debounce.300ms="search" class="py-2 pl-8 pr-4 border border-gray-300 rounded-full">
+            <div class="absolute inset-y-0 left-0 flex items-center pl-3">
+                <svg class="w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M21 21l-4.35-4.35M10 18a8 8 0 100-16 8 8 0 000 16z"></path>
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        Search Value: {{ $search }}
+    </div>
+
     <table class="min-w-full my-4 divide-y divide-gray-200">
-        <div class="flex items-center justify-between mb-6">
         <thead>
             <tr>
                 <th class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">{{ __('Nomor') }}</th>
