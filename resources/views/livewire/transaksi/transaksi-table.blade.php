@@ -1,8 +1,20 @@
 <div class="overflow-x-auto">
+    @if ($errors->any())
+    @foreach ($errors->all() as $error)
+        <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 3000)" class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg alert dark:bg-red-200 dark:text-red-800" role="alert">
+            {{ $error }}
+        </div>
+    @endforeach
+@endif
+@if (session()->has('success'))
+    <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 3000)" class="p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg alert dark:bg-green-200 dark:text-green-800" role="alert">
+        {{ session('success') }}
+    </div>
+@endif
     <div class="flex justify-between mb-4">
         <h1 class="text-2xl font-bold text-red-600">Transaksi</h1>
         <div class="relative">
-            <input type="text" placeholder="Search" wire:model.debounce.300ms="search" class="py-2 pl-8 pr-4 border border-gray-300 rounded-full">
+            <input type="search" placeholder="Search" wire:model.debounce.300ms="search" class="py-2 pl-8 pr-4 border border-gray-300 rounded-full">
             <div class="absolute inset-y-0 left-0 flex items-center pl-3">
                 <svg class="w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M21 21l-4.35-4.35M10 18a8 8 0 100-16 8 8 0 000 16z"></path>
