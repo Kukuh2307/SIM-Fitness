@@ -1,8 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="text-xl font-semibold leading-tight text-gray-800">
-            {{ __('Metode Pembayaran') }}
-        </h2>
+        {{ __('Metode Pembayaran') }}
     </x-slot>
     <div class="h-screen mt-10">
         <div class="mx-auto max-w-[95rem] sm:px-6 lg:px-8">
