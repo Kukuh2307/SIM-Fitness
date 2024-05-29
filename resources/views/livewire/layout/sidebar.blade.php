@@ -12,8 +12,8 @@
         <li class="flex items-center justify-center px-4 py-5 text-xl font-bold hover:bg-red-700">
             <a href="{{ url('list-alat') }}" class="w-full text-center">Listing Alat</a>
         </li>
-        <li class="flex items-center justify-center px-4 py-5 text-xl font-bold hover:bg-red-700">
-            <a href="{{ url('metode-pembayaran') }}" class="w-full text-center">Metode Pembayaran</a>
+        {{-- <li class="flex items-center justify-center px-4 py-5 text-xl font-bold hover:bg-red-700">
+            <a href="{{ url('metode-pembayaran') }}" class="w-full text-center">Metode Pembayaran</a> --}}
         </li>
         <li class="flex items-center justify-center px-4 py-5 text-xl font-bold hover:bg-red-700">
             <a href="{{ url('instruktur') }}" class="w-full text-center">Instruktur</a>
