@@ -3,9 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\Admin\AdminController;
-use App\Http\Livewire\InformasiTable;
-use App\Livewire\Informasi;
 use App\Http\Controllers\TransaksiController;
+use App\Livewire\Informasi;
+use App\Livewire\Instruktur;
+use App\Livewire\Kelas;
+
 
 Route::view('/', 'landingpage.home');
 
@@ -25,12 +27,16 @@ Route::view('profile', 'profile')
     ->name('profile');
 
 
-// Route::get('/informasi', InformasiTable::class)->name('informasi');
-
-
 
 Route::get('home', [HomeController::class, 'index'])->name('home');
-Route::get('/informasi', [Informasi::class, 'render'])->name('employee');
+Route::get('/informasi', [Informasi::class, 'render'])->name('informasi');
+Route::get('/kelas', [Kelas::class, 'render'])->name('kelas')->name('kelas');
+Route::get('/instruktur', [Instruktur::class, 'render'])->name('instruktur');
+
+Route::get('members', [AdminController::class, 'members'])->middleware(['auth', 'verified', 'admin'])->name('members');
+Route::get('list-alat', [AdminController::class, 'listAlat'])->middleware(['auth', 'verified', 'admin'])->name('list-alat');
+Route::get('metode-pembayaran', [AdminController::class, 'metodePembayaran'])->middleware(['auth', 'verified', 'admin'])->name('metode-pembayaran');
+
 
 Route::get('/transaksi', [TransaksiController::class, 'index'])->name('transaksi');
 require __DIR__ . '/auth.php';

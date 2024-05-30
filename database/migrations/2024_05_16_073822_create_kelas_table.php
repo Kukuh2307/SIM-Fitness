@@ -17,10 +17,11 @@ return new class extends Migration
             $table->string('Nama_Kelas')->unique();
             $table->string('Deskripsi');
             $table->string('Biaya');
-            $table->dateTime('Waktu_Mulai');
-            $table->dateTime('Waktu_Selesai');
+            $table->time('Waktu_Mulai');
+            $table->time('Waktu_Selesai');
             $table->string('Hari');
             $table->string('Kuota');
+            $table->string('Foto');
             $table->timestamps();
         });
     }

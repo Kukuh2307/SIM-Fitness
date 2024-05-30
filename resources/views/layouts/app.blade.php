@@ -16,10 +16,8 @@
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
-            <div class="flex">
-                <aside>
-                    <livewire:layout.sidebar />
-                </aside>
+            <div class="flex h-screen">
+                <livewire:layout.sidebar />
                 <div class="flex flex-col w-full h-full">
                     <livewire:layout.navigation />
                     <!-- Page Heading -->
@@ -32,7 +30,7 @@
                     @endif --}}
 
                     <!-- Page Content -->
-                    <main class="overflow-scroll pl-52">
+                    <main class="ml-10 overflow-scroll pl-60">
                         {{ $slot }}
                     </main>
                 </div>

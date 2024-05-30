@@ -11,9 +11,6 @@ class Informasi extends Component
     public $dataInformasi;
     public function render()
     {
-        $this->dataInformasi = InformasiModel::orderBy('id', 'desc')->get();
-        return view('informasi', [
-            'dataInformasi' => $this->dataInformasi,
-        ]);
+        return view('informasi');
     }
 }
