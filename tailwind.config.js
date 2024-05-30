@@ -1,5 +1,6 @@
 import defaultTheme from 'tailwindcss/defaultTheme';
 import forms from '@tailwindcss/forms';
+import filters from 'tailwindcss-filters';
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -14,8 +15,14 @@ export default {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
+            filter: {
+                'invert': 'invert(1)',
+            },
         },
     },
 
-    plugins: [forms],
+    plugins: [
+        forms,
+        filters,
+    ],
 };
