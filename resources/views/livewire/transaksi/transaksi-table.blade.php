@@ -11,8 +11,8 @@
         {{ session('success') }}
     </div>
 @endif
-    <div class="flex justify-between mb-4">
-        <h1 class="text-2xl font-bold text-red-600">Transaksi</h1>
+    <div class="flex justify-end mt-3 mb-4">
+        {{-- <h1 class="text-2xl font-bold text-red-600">Transaksi</h1> --}}
         <div class="relative">
             <input type="search" placeholder="Search" wire:model.debounce.300ms="search" class="py-2 pl-8 pr-4 border border-gray-300 rounded-full">
             <div class="absolute inset-y-0 left-0 flex items-center pl-3">
@@ -21,10 +21,6 @@
                 </svg>
             </div>
         </div>
-    </div>
-
-    <div>
-        Search Value: {{ $search }}
     </div>
 
     <table class="min-w-full my-4 divide-y divide-gray-200">
