@@ -16,8 +16,8 @@ models:
     Nama_Kelas: string unique
     Deskripsi: string
     Biaya: int
-    Waktu_Mulai: datetime
-    Waktu_Selesai: datetime
+    Waktu_Mulai: times
+    Waktu_Selesai: times
     Hari: enum('Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu')
     Kuota: int
     Foto: string
