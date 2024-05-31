@@ -1,6 +1,6 @@
 <div class="fixed w-64 h-screen text-white from-red-600 to-slate-800 bg-gradient-to-tr backdrop-blur-md">
     <div class="flex items-center justify-center p-4">
-        <img src="{{ asset('images/baru.png') }}" alt="Logo Fit Banget" class="w-45 h-auto">
+        <img src="{{ asset('images/baru.png') }}" alt="Logo Fit Banget" class="h-auto w-45">
     </div>
     <ul class="mt-10">
         <li class="flex items-center justify-start px-10 py-5 text-xl font-bold hover:bg-red-700">
