@@ -34,6 +34,7 @@ Route::get('/transaksi', [Transaksi::class, 'render'])->name('transaksi');
 Route::get('members', [AdminController::class, 'members'])->middleware(['auth', 'verified', 'admin'])->name('members');
 Route::get('list-alat', [AdminController::class, 'listAlat'])->middleware(['auth', 'verified', 'admin'])->name('list-alat');
 Route::get('metode-pembayaran', [AdminController::class, 'metodePembayaran'])->middleware(['auth', 'verified', 'admin'])->name('metode-pembayaran');
+Route::get('transaksi', [AdminController::class, 'transaksi'])->middleware(['auth', 'verified', 'admin'])->name('transaksi');
 
 
 require __DIR__ . '/auth.php';

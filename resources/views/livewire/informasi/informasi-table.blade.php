@@ -1,16 +1,16 @@
 <div class="overflow-x-auto">
     <table class="min-w-full my-4 divide-y divide-gray-200">
-        <thead>
+        <thead class="bg-gray-50">
             <tr>
-                <th class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">{{ __('Nomor') }}</th>
-                <th class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">{{ __('Judul') }}</th>
-                <th class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">{{ __('Deskripsi') }}</th>
-                <th class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">{{ __('Action') }}</th>
+                <th class="px-6 py-3 text-xs font-bold tracking-wider text-left text-black-500 uppercase">{{ __('Nomor') }}</th>
+                <th class="px-6 py-3 text-xs font-bold tracking-wider text-left text-black-500 uppercase">{{ __('Judul') }}</th>
+                <th class="px-6 py-3 text-xs font-bold tracking-wider text-left text-black-500 uppercase">{{ __('Deskripsi') }}</th>
+                <th class="px-6 py-3 text-xs font-bold tracking-wider text-left text-black-500 uppercase">{{ __('Action') }}</th>
             </tr>
         </thead>
         <tbody class="bg-white divide-y divide-gray-200">
             @foreach ($informations as $key => $information)
-                <tr>
+                <tr class="hover:bg-gray-50">
                     {{-- id hidden --}}
                     <td class="hidden px-6 py-4 whitespace-nowrap">{{ $information->id }}</td>
                     <td class="px-6 py-4 whitespace-nowrap">{{ $loop->index + 1 }}</td>
