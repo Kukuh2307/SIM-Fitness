@@ -6,7 +6,9 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Livewire\Informasi;
 use App\Livewire\Kelas;
 use App\Livewire\Instruktur;
+use App\Livewire\ListingAlat;
 use App\Livewire\Transaksi;
+use App\Models\ListAlat;
 
 Route::view('/', 'landingpage.home');
 
@@ -32,7 +34,7 @@ Route::get('/transaksi', [Transaksi::class, 'render'])->name('transaksi');
 
 
 Route::get('members', [AdminController::class, 'members'])->middleware(['auth', 'verified', 'admin'])->name('members');
-Route::get('list-alat', [AdminController::class, 'listAlat'])->middleware(['auth', 'verified', 'admin'])->name('list-alat');
+Route::get('listing-alat', [ListingAlat::class, 'render'])->middleware(['auth', 'verified', 'admin'])->name('list-alat');
 Route::get('metode-pembayaran', [AdminController::class, 'metodePembayaran'])->middleware(['auth', 'verified', 'admin'])->name('metode-pembayaran');
 Route::get('transaksi', [AdminController::class, 'transaksi'])->middleware(['auth', 'verified', 'admin'])->name('transaksi');
 

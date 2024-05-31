@@ -15,12 +15,20 @@ class Instruktur extends Model
      * @var array
      */
     protected $fillable = [
-        'id_Kelas',
         'Nama',
         'Email',
         'Foto',
         'Deskripsi',
         'Spesialis',
         'Biaya',
+    ];
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'id' => 'integer',
     ];
 }

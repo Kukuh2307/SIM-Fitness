@@ -25,7 +25,7 @@ class TransaksiFactory extends Factory
             'Nama_Instruktur' => $this->faker->word(),
             'Nama_Kelas' => $this->faker->word(),
             'Total_Biaya' => $this->faker->word(),
-            'Metoide_Pembayaran' => $this->faker->word(),
+            'Metode_Pembayaran' => $this->faker->word(),
             'Status' => $this->faker->word(),
         ];
     }

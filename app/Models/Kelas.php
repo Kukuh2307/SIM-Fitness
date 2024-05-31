@@ -32,12 +32,8 @@ class Kelas extends Model
      * @var array
      */
     protected $casts = [
-        'Waktu_Mulai' => 'date:H:i:s',
-        'Waktu_Selesai' => 'date:H:i:s',
+        'id' => 'integer',
+        'Waktu_Mulai' => 'datetime',
+        'Waktu_Selesai' => 'datetime',
     ];
-
-    public function instruktur()
-    {
-        return $this->belongsTo(Instruktur::class, 'id_Instruktur', 'id');
-    }
 }

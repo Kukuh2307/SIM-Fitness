@@ -13,7 +13,7 @@
         </li>
         <li class="flex items-center justify-start px-10 py-5 text-xl font-bold hover:bg-red-700 {{ $title == 'Listing Alat' ? 'bg-red-700' : '' }}">
             <img src="{{ asset('images/listalat.png') }}" alt="Listing Alat Icon" class="w-10 mr-5 filter invert">
-            <a href="{{ url('list-alat') }}" class="w-full text-left">Listing Alat</a>
+            <a href="{{ url('listing-alat') }}" class="w-full text-left">Listing Alat</a>
         </li>
         <li class="flex items-center justify-start px-10 py-5 text-xl font-bold hover:bg-red-700 {{ $title == 'Instruktur' ? 'bg-red-700' : '' }}">
             <img src="{{ asset('images/instruktur.png') }}" alt="Instruktur Icon" class="w-10 mr-5 filter invert">
