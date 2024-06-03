@@ -22,7 +22,6 @@
             </div>
         </div>
     </div>
-
     <table class="min-w-full my-4 divide-y divide-gray-200">
         <thead>
             <tr>
