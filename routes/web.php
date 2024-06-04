@@ -1,17 +1,17 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Home\HomeController;
-use App\Http\Controllers\Admin\AdminController;
-use App\Livewire\Informasi;
 use App\Livewire\Kelas;
+use App\Livewire\Member;
+use App\Livewire\Informasi;
+use App\Livewire\Transaksi;
 use App\Livewire\Instruktur;
 use App\Livewire\ListingAlat;
-use App\Livewire\Member;
-use App\Livewire\Transaksi;
-use App\Models\ListAlat;
+use App\Livewire\Landingpage\Home;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\AdminController;
 
-Route::view('/', 'landingpage.home');
+
+Route::view('/', 'livewire.landingpage.home');
 
 // Route::view('dashboard', 'dashboard')
 //     ->middleware(['auth', 'verified', 'admin'])
@@ -27,13 +27,14 @@ Route::view('profile', 'profile')
 
 
 
-Route::get('home', [HomeController::class, 'index'])->name('home');
+Route::get('home', [Home::class, 'render'])->name('home');
+
+
+// ADMIN
 Route::get('/informasi', [Informasi::class, 'render'])->name('informasi');
 Route::get('/kelas', [Kelas::class, 'render'])->name('kelas')->name('kelas');
 Route::get('/instruktur', [Instruktur::class, 'render'])->name('instruktur');
 Route::get('/transaksi', [Transaksi::class, 'render'])->name('transaksi');
-
-
 Route::get('members', [Member::class, 'render'])->middleware(['auth', 'verified', 'admin'])->name('members');
 Route::get('listing-alat', [ListingAlat::class, 'render'])->middleware(['auth', 'verified', 'admin'])->name('list-alat');
 Route::get('transaksi', [Transaksi::class, 'render'])->middleware(['auth', 'verified', 'admin'])->name('transaksi');
