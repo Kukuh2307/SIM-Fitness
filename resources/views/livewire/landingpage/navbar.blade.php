@@ -15,11 +15,17 @@
           </button>
         </div>
       </ul>
-  
 
-      <a href="{{ route('register') }}" class="py-4 px-7 text-xl group relative text-white bg-[orangered] rounded-sm">
-        <div class="buttonDiv"></div>
-        <span class="buttonSpan">BECOME A MEMBER</span>
-      </a>
+      @auth
+        <a href="{{ route('dashboard') }}" class="py-4 px-7 text-xl group relative text-white bg-[orangered] rounded-sm">
+          <div class="buttonDiv"></div>
+          <span class="buttonSpan">DASHBOARD</span>
+        </a>
+      @else
+        <a href="{{ route('register') }}" class="py-4 px-7 text-xl group relative text-white bg-[orangered] rounded-sm">
+          <div class="buttonDiv"></div>
+          <span class="buttonSpan">BECOME A MEMBER</span>
+        </a>
+      @endauth
     </nav>
   </header>

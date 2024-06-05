@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
 
 
-Route::view('/', 'livewire.landingpage.home');
+Route::redirect('/', 'home');
 
 // Route::view('dashboard', 'dashboard')
 //     ->middleware(['auth', 'verified', 'admin'])
