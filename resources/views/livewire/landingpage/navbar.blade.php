@@ -7,9 +7,6 @@
         <li class="text-xl font-medium text-white hover:text-red-500"><a href="#home">Home</a></li>
         <li class="text-xl font-medium text-white hover:text-red-500"><a href="#about">About</a></li>
         <li class="text-xl font-medium text-white hover:text-red-500"><a href="#services">Services</a></li>
-        <li class="text-xl font-medium text-white hover:text-red-500"><a href="#schedule">Schedule</a></li>
-        <li class="text-xl font-medium text-white hover:text-red-500"><a href="#gallery">Gallery</a></li>
-        <li class="text-xl font-medium text-white hover:text-red-500"><a href="#blog">Blog</a></li>
         <li class="text-xl font-medium text-white hover:text-red-500"><a href="#contact">Contact</a></li>
   
         <div class="absolute right-[20px] translate-y-[-50%] text-2xl cursor-pointer top-[25px]">
@@ -19,9 +16,10 @@
         </div>
       </ul>
   
-      <button class="py-4 px-7 text-xl group relative text-white bg-[orangered] rounded-sm">
+
+      <a href="{{ route('register') }}" class="py-4 px-7 text-xl group relative text-white bg-[orangered] rounded-sm">
         <div class="buttonDiv"></div>
         <span class="buttonSpan">BECOME A MEMBER</span>
-      </button>
+      </a>
     </nav>
   </header>

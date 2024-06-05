@@ -35,10 +35,35 @@ class Home extends Component
             ]
         ];
     }
+
+    public function getInstruktur()
+    {
+        return [
+            [
+                'id' => 1,
+                'role' => 'Instruktur',
+                'img' => '/assets/img-7.jpg',
+                'name' => "Butler"
+            ],
+            [
+                'id' => 2,
+                'role' => 'Instruktur',
+                'img' => '/assets/img-15.jpg',
+                'name' => "Chiris Harris"
+            ],
+            [
+                'id' => 3,
+                'role' => 'Instruktur',
+                'img' => '/assets/img-9.jpg',
+                'name' => "Martin"
+            ]
+        ];
+    }
     public function render()
     {
         return view('livewire.landingpage.home', [
             'client' => $this->getClient(),
+            'instruktur' => $this->getInstruktur(),
             'test' => 'test'
         ]);
     }

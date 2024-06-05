@@ -21,12 +21,16 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    {{-- @dd($test) --}}
+  {{-- @dd($instruktur) --}}
   @livewire('landingpage.navbar')
   @livewire('landingpage.hero-section')
   @livewire('landingpage.about-section')
   @livewire('landingpage.service-section')
-  {{-- @livewire('landingpage.client-section', ['client' => $client]) --}}
+  @livewire('landingpage.client-section', ['client' => $client])
+  @livewire('landingpage.instruktur-section', ['instruktur' => $instruktur])
+  @livewire('landingpage.contact-section')
+  @livewire('landingpage.footer')
   @livewireScripts
 </body>
 </html>
+
