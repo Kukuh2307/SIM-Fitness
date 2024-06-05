@@ -5,20 +5,20 @@
         {{ __('Instruktur') }}
     </x-slot>
 
-    <div class="container mx-auto p-4 sm:p-8 bg-gray-100 min-h-screen">
+    <div class="container min-h-screen p-4 mx-auto bg-gray-100 sm:p-8">
         
         {{-- Create Kelas Section --}}
-        <div class="bg-white shadow-lg sm:rounded-lg p-6 mb-8">
+        <div class="p-6 mb-8 bg-white shadow-lg sm:rounded-lg">
             <div class="max-w-full">
-                <h3 class="text-lg font-semibold text-gray-700 mb-4">Create Instruktur</h3>
+                <h3 class="mb-4 text-lg font-semibold text-gray-700">Create Instruktur</h3>
                 @livewire('instruktur.create-instruktur')
             </div>
         </div>
 
         {{-- Kelas Table Section --}}
-        <div class="bg-white shadow-lg sm:rounded-lg p-6">
+        <div class="p-6 bg-white shadow-lg sm:rounded-lg">
             <div class="max-w-full overflow-x-auto">
-                <h3 class="bg-red-600 text-white px-4 py-2 rounded-t-lg font-bold mb-2">Daftar Instruktur</h3>
+                <h3 class="px-4 py-2 mb-2 font-bold text-white bg-red-600 rounded-t-lg">Daftar Instruktur</h3>
                 @livewire('instruktur.instruktur-table')
             </div>
         </div>

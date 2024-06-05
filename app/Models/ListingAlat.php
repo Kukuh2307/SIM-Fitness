@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ListAlat extends Model
+class ListingAlat extends Model
 {
     use HasFactory;
 
@@ -20,5 +20,14 @@ class ListAlat extends Model
         'Kondisi_Alat',
         'Foto',
         'Merk',
+    ];
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'id' => 'integer',
     ];
 }

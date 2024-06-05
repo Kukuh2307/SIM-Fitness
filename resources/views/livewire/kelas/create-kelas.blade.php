@@ -14,29 +14,29 @@
 
     <form wire:submit.prevent="{{ $btnUpdate ? 'update' : 'store' }}" class="space-y-6">
         @csrf
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
             <div class="space-y-4">
                 <div>
                     <label for="nama_kelas" class="font-semibold">Nama Kelas</label>
-                    <input type="text" id="nama_kelas" name="nama_kelas" wire:model.lazy="nama_kelas" class="mt-1 block w-full p-3 text-black rounded-lg border border-gray-200 focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Nama Kelas">
+                    <input type="text" id="nama_kelas" name="nama_kelas" wire:model.lazy="nama_kelas" class="block w-full p-3 mt-1 text-black border border-gray-200 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Nama Kelas">
                     @error('nama_kelas') <span class="text-sm text-red-600">{{ $message }}</span> @enderror
                 </div>
 
                 <div>
                     <label for="deskripsi" class="font-semibold">Deskripsi</label>
-                    <textarea name="deskripsi" wire:model.lazy="deskripsi" class="w-full p-2 text-black bg-white rounded-lg border border-gray-200 focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Deskripsi" cols="5" rows="5"></textarea>
+                    <textarea name="deskripsi" wire:model.lazy="deskripsi" class="w-full p-2 text-black bg-white border border-gray-200 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Deskripsi" cols="5" rows="5"></textarea>
                     @error('deskripsi') <span class="text-sm text-red-600">{{ $message }}</span> @enderror
                 </div>
 
                 <div>
                     <label for="biaya" class="font-semibold">Biaya</label>
-                    <input type="number" id="biaya" name="biaya" wire:model.lazy="biaya" class="mt-1 block w-full p-3 text-black rounded-lg border border-gray-200 focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Biaya">
+                    <input type="number" id="biaya" name="biaya" wire:model.lazy="biaya" class="block w-full p-3 mt-1 text-black border border-gray-200 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Biaya">
                     @error('biaya') <span class="text-sm text-red-600">{{ $message }}</span> @enderror
                 </div>
 
                 <div>
                     <label for="id_instruktur" class="font-semibold">Instruktur</label>
-                    <select id="id_instruktur" name="id_instruktur" wire:model.lazy="id_instruktur" class="mt-1 block w-full p-3 text-black rounded-lg border border-gray-200 focus:ring-2 focus:ring-red-600 focus:border-transparent">
+                    <select id="id_instruktur" name="id_instruktur" wire:model.lazy="id_instruktur" class="block w-full p-3 mt-1 text-black border border-gray-200 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent">
                         <option value="">Pilih Instruktur</option>
                         @foreach($instrukturs as $instruktur)
                             <option value="{{ $instruktur->id }}">{{ $instruktur->Nama }}</option>
@@ -49,19 +49,19 @@
             <div class="space-y-4">
                 <div>
                     <label for="waktu_mulai" class="font-semibold">Waktu Mulai (format HH:MM)</label>
-                    <input type="text" id="waktu_mulai" name="waktu_mulai" wire:model.lazy="waktu_mulai" class="mt-1 block w-full p-3 text-black rounded-lg border border-gray-200 focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Waktu Mulai (format HH:MM)">
+                    <input type="text" id="waktu_mulai" name="waktu_mulai" wire:model.lazy="waktu_mulai" class="block w-full p-3 mt-1 text-black border border-gray-200 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Waktu Mulai (format HH:MM)">
                     @error('waktu_mulai') <span class="text-sm text-red-600">{{ $message }}</span> @enderror
                 </div>
 
                 <div>
                     <label for="waktu_selesai" class="font-semibold">Waktu Selesai (format HH:MM)</label>
-                    <input type="text" id="waktu_selesai" name="waktu_selesai" wire:model.lazy="waktu_selesai" class="mt-1 block w-full p-3 text-black rounded-lg border border-gray-200 focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Waktu Selesai (format HH:MM)">
+                    <input type="text" id="waktu_selesai" name="waktu_selesai" wire:model.lazy="waktu_selesai" class="block w-full p-3 mt-1 text-black border border-gray-200 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Waktu Selesai (format HH:MM)">
                     @error('waktu_selesai') <span class="text-sm text-red-600">{{ $message }}</span> @enderror
                 </div>
 
                 <div>
                     <label for="hari" class="font-semibold">Hari</label>
-                    <select id="hari" name="hari" wire:model.lazy="hari" class="mt-1 block w-full p-3 text-black rounded-lg border border-gray-200 focus:ring-2 focus:ring-red-600 focus:border-transparent">
+                    <select id="hari" name="hari" wire:model.lazy="hari" class="block w-full p-3 mt-1 text-black border border-gray-200 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent">
                         <option value="">Pilih Hari</option>
                         @foreach($days as $d)
                             <option value="{{ $d }}">{{ $d }}</option>
@@ -72,17 +72,17 @@
 
                 <div>
                     <label for="kuota" class="font-semibold">Kuota</label>
-                    <input type="number" id="kuota" name="kuota" wire:model.lazy="kuota" class="mt-1 block w-full p-3 text-black rounded-lg border border-gray-200 focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Kuota">
+                    <input type="number" id="kuota" name="kuota" wire:model.lazy="kuota" class="block w-full p-3 mt-1 text-black border border-gray-200 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Kuota">
                     @error('kuota') <span class="text-sm text-red-600">{{ $message }}</span> @enderror
                 </div>
 
                 <div>
                     <label for="foto" class="font-semibold">Foto</label>
                     @if($btnUpdate)
-                        <input type="file" id="foto" name="foto" wire:model="foto" class="mt-1 block w-full p-3 text-black rounded-lg border border-gray-200 focus:ring-2 focus:ring-red-600 focus:border-transparent">
+                        <input type="file" id="foto" name="foto" wire:model="foto" class="block w-full p-3 mt-1 text-black border border-gray-200 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent">
                         <img src="{{ asset('storage/'.$fotoLama) }}" class="w-32 h-32 mt-2 rounded-md" alt="Foto Kelas">
                     @else
-                        <input type="file" id="fotoLama" name="fotoLama" wire:model="fotoLama" class="mt-1 block w-full p-2 text-black bg-white border border-gray-300 rounded-lg shadow-sm focus:border-indigo-500 focus:ring focus:ring-red-600 focus:ring-opacity-50">
+                        <input type="file" id="fotoLama" name="fotoLama" wire:model="fotoLama" class="block w-full p-2 mt-1 text-black bg-white rounded-lg shadow-sm focus:border-indigo-500 focus:ring focus:ring-red-600 focus:ring-opacity-50">
                     @endif
                     @error('foto') <span class="text-sm text-red-600">{{ $message }}</span> @enderror
                 </div>

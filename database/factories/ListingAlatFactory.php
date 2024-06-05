@@ -4,16 +4,16 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
-use App\Models\ListAlat;
+use App\Models\ListingAlat;
 
-class ListAlatFactory extends Factory
+class ListingAlatFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = ListAlat::class;
+    protected $model = ListingAlat::class;
 
     /**
      * Define the model's default state.
