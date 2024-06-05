@@ -4,11 +4,10 @@ namespace App\Livewire;
 
 use Livewire\Component;
 
-class Informasi extends Component
+class Transaksi extends Component
 {
-    public $title;
     public function render()
     {
-        return view('informasi');
+        return view('transaksi');
     }
 }

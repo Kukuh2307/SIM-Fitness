@@ -17,8 +17,8 @@ return new class extends Migration
             $table->string('Nama_Instruktur');
             $table->string('Nama_Kelas');
             $table->string('Total_Biaya');
-            $table->string('Metoide_Pembayaran');
-            $table->string('Status');
+            $table->enum('Metode_Pembayaran', ['BCA', 'OVO', 'DANA', 'GOPAY', 'LINKAJA', 'SHOPEEPAY'])->default('BCA');
+            $table->enum('Status', ['pending', 'success', 'failed'])->default('pending');
             $table->timestamps();
         });
     }
