@@ -19,7 +19,7 @@ class Transaksi extends Model
         'Nama_Instruktur',
         'Nama_Kelas',
         'Total_Biaya',
-        'Metoide_Pembayaran',
+        'Metode_Pembayaran',
         'Status',
     ];
 }
