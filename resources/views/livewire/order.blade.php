@@ -4,7 +4,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.4.0/uicons-solid-straight/css/uicons-solid-straight.css'>
     </head>
-    <div class="p-5 ">
+    <div class="p-5 bg-slate-100">
        <p class="text-red-500 text-4xl">Gym Membership</p>
        <div class="flex membership-cards p-5 gap-5">
         {{-- 1 bulan --}}
