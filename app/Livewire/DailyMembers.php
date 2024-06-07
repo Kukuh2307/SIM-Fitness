@@ -3,7 +3,7 @@
 namespace App\Livewire;
 
 use Livewire\Component;
-use App\Models\Order as ModelsOrder;
+use App\Models\DailyMember;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -12,7 +12,7 @@ use Xendit\Invoice\CreateInvoiceRequest;
 use Xendit\Invoice\InvoiceApi;
 use Xendit\Invoice\InvoiceItem;
 
-class Order extends Component
+class DailyMembers extends Component
 {
     public function __construct()
     {
@@ -21,13 +21,12 @@ class Order extends Component
 
     public function createInvoice(Request $request){
 
-            $no_transaction = "Membership-" . rand();
-            $order = new ModelsOrder();
+            $no_transaction = "Daily-Member-" . rand();
+            $order = new DailyMember();
             $order->no_transaction = $no_transaction;
             $order->external_id = $no_transaction;
             $order->member_name = auth()->user()->nama;
             $order->member_email = auth()->user()->email;
-            $order->item_name = $request->input('item_name');
             $order->price = $request->input('price');
 
             $items = new InvoiceItem([
@@ -39,14 +38,13 @@ class Order extends Component
 
             $createInvoice = new CreateInvoiceRequest([
                 'external_id'=>$no_transaction,
-                'description'=>"Pembelian Paket Membership ".$request->input('item_name')." atas nama ".auth()->user()->nama."\n email: ".auth()->user()->email,
+                'description'=>"Pembelian Paket Harian atas nama ".auth()->user()->nama."\n email: ".auth()->user()->email,
                 'payer_email'=> auth()->user()->email,
                 'amount' =>$request->input('price'),
                 'invoice_duration'=>172800,
                 'items'=>array($items),
                 'currency'=>'IDR',
                 'should_send_email'=>true,
-                'recurring_payment_id'=>$no_transaction,
             ]);
             
             $apiInstance = new InvoiceApi();
@@ -56,7 +54,7 @@ class Order extends Component
             // dd($generateInvoice);
             $order->save();
             
-            return Redirect::away('/invoice-menu');
+            return Redirect::away('/invoice-harian');
             // $user = auth()->user();
             // dd($user);
     }
@@ -103,9 +101,8 @@ class Order extends Component
             throw $th;
         }
     }
-
     public function render()
     {
-        return view('livewire.order');
+        return view('livewire.daily-members');
     }
 }

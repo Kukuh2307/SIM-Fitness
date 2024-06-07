@@ -8,7 +8,8 @@ use App\Livewire\Dashboard;
 use App\Livewire\Informasi;
 use App\Livewire\InvoiceMenu;
 use App\Livewire\Order;
-
+use App\Livewire\DailyMembers;
+use App\Livewire\InvoiceHarian;
 
 Route::view('/', 'landingpage.home');
 
@@ -31,6 +32,12 @@ Route::get('/admin.listing-alat', [Alat::class, 'render'])->name('admin.listing-
 Route::get('/membership', [Order::class, 'render'])->name('membership');
 Route::post('/create-invoice',[Order::class, 'createInvoice'])->name('createInvoice');
 Route::get("/invoice-menu", [InvoiceMenu::class , 'render'])->name('invoice-menu');
+
+// daily member
+Route::post('/create-invoice-daily',[DailyMembers::class, 'createInvoice'])->name('createInvoiceDaily');
+Route::get('daily-member', [DailyMembers::class, 'render'])->name('daily-member');
+Route::get('invoice-harian',[InvoiceHarian::class, 'render'])->name('invoice-harian');
+
 
 
 Route::get('home', [HomeController::class, 'index'])->name('home');

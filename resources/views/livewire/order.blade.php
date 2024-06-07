@@ -6,7 +6,7 @@
     </head>
     <div class="p-5 bg-slate-100">
        <p class="text-red-500 text-4xl">Gym Membership</p>
-       <div class="flex membership-cards p-5 gap-5">
+       <div class="lg:flex  membership-cards p-5 gap-5">
         {{-- 1 bulan --}}
             <form   
                 action="{{route('createInvoice')}}" 
