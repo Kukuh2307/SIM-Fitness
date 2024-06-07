@@ -30,6 +30,9 @@ html {
     color: white;
 }
 
+.hoverNav {
+    @apply inset-0 w-0 bg-red-800 duration-300 ease-in-out group-hover:w-full;
+}
 @layer components {
     .buttonDiv {
         @apply absolute inset-0 w-0 bg-red-800 duration-300 ease-in-out group-hover:w-full;
