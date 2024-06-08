@@ -61,6 +61,12 @@
                           </x-dropdown-link>
                       @endrole
 
+                      @role('user')
+                          <x-dropdown-link :href="route('dashboard')" wire:navigate>
+                              {{ __('User Dashboard') }}
+                          </x-dropdown-link>
+                      @endrole
+
                       <div class="border-t border-gray-100"></div>
 
                       <x-dropdown-link :href="route('logout')" method="post" class="w-full text-start">
