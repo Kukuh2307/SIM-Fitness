@@ -81,9 +81,9 @@
               <div class="buttonDiv"></div>
               <span class="buttonSpan">LOGIN</span>
           </a>
-          <a href="{{ route('register') }}" class="py-2 px-5 text-xl group relative text-white bg-[orangered] rounded-sm ml-3">
-              <div class="buttonDiv"></div>
-              <span class="buttonSpan">REGISTER</span>
+          <a href="{{ route('register') }}" class="py-2 px-5 text-xl group relative text-[orangered] bg-white rounded-sm ml-3">
+              <div class="buttonDiv2"></div>
+              <span class="buttonSpan2">REGISTER</span>
           </a>
       </div>
       @endauth
