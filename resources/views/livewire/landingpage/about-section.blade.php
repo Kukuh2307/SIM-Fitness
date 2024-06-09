@@ -7,23 +7,23 @@
       </div>
   
       <div class="flex-1 ">
-        <p class="text-[#f04e3c] relative before:absolute before:w-20 before:h-1 before:bg-[#f04e3c] before:top-[50%] before:left-0 pl-24 text-2xl before:translate-y-[-50%]">ABOUT OUR GYM</p>
+        <p class="text-[#f04e3c] relative before:absolute before:w-20 before:h-1 before:bg-[#f04e3c] before:top-[50%] before:left-0 pl-24 text-2xl before:translate-y-[-50%]">Tengang GYM Kami</p>
   
         <div class="my-7 text-5xl leading-[60px] font-semibold text-black max-xl:text-4xl max-xl:my-4 max-lg:my-7 max-lg:text-5xl max-lg:leading-[60px] max-sm:text-3xl">
-          <h1>SAFE BODY BUILDING PROPER SOLUTIONS THAT SAVES OUR VALUABLE TIME!</h1>
+          <h1 class="uppercase">Solusi Kebugaran yang Aman dan Efisien untuk Menghemat Waktu Berharga Anda!</h1>
         </div>
   
         <p class="text-lg font text-slate-800">
-          Brook presents your services with flexible, convenient and cdpose layouts. You can select your favorite layouts & elements for cular ts with unlimited ustomization possibilities. Pixel-perfect replication of the designers is intended
+          Gym kami menawarkan layanan dengan tata letak yang fleksibel dan nyaman. Anda dapat memilih tata letak dan elemen favorit Anda dengan kemungkinan kustomisasi tanpa batas. Replikasi desain yang sempurna dari para desainer kami telah disiapkan khusus untuk Anda.
         </p>
   
         <p class="mt-5 text-lg font text-slate-500 mb-14 max-xl:mb-8">
-          Brook presents your services with flexible, convefnient and chient anipurpose layouts. You can select your favorite layouts.
+          BGym kami menyediakan layanan dengan tata letak serbaguna yang fleksibel dan efisien. Anda dapat memilih tata letak favorit Anda.
         </p>
-  
+        
         <button class="py-4 px-9 text-xl group relative text-white bg-[orangered] rounded-sm">
           <div class="buttonDiv"></div>
-          <span class="buttonSpan">BECOME A MEMBER</span>
+          <span class="buttonSpan">Daftar Member</span>
         </button>
       </div>
     </div>

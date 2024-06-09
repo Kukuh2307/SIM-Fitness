@@ -41,7 +41,7 @@ html {
         @apply relative text-white uppercase;
     }
     .buttonSpan2 {
-        @apply relative text-red-800 uppercase;
+        @apply relative text-[#f04e3c] uppercase;
     }
     .font {
         font-family: "Barlow", sans-serif;
