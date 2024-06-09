@@ -5,11 +5,11 @@
       </div>
   
       <div class="px-5 max-lg:px-0">
-        <p class="w-fit text-[#f04e3c] relative before:absolute before:w-20 before:h-1 before:bg-[#f04e3c] before:top-[50%] before:left-0 pl-24 text-2xl before:translate-y-[-50%]">CONTACT FORM</p>
+        <p class="w-fit text-[#f04e3c] relative before:absolute before:w-20 before:h-1 before:bg-[#f04e3c] before:top-[50%] before:left-0 pl-24 text-2xl before:translate-y-[-50%]">KONTAK KAMI</p>
   
         <div class="text-5xl font-semibold leading-[70px] mt-5 mb-20 max-xl:leading-[50px] max-xl:mb-10 max-sm:text-3xl">
-          <h1>FEEL FREE TO CONTACT</h1>
-          <h1>WITH US!</h1>
+          <h1>JANGAN RAGU UNTUK</h1>
+          <h1>MENGHUBUNGI KAMI!</h1>
         </div>
   
         <div class="grid grid-cols-2 gap-14 max-xl:gap-10 max-lg:gap-14 max-md:grid-cols-1 max-sm:w-[90%] max-sm:m-auto">
@@ -28,7 +28,7 @@
         </div>
         <button class="mt-20 py-4 px-9 text-xl group relative text-white bg-[orangered] rounded-sm max-xl:mt-10">
           <div class="buttonDiv"></div>
-          <span class="buttonSpan">SEND MESSAGE</span>
+          <span class="buttonSpan">KIRIM PESAN</span>
         </button>
       </div>
     </div>

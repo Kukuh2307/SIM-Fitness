@@ -26,9 +26,8 @@
   @livewire('landingpage.hero-section')
   @livewire('landingpage.about-section')
   @livewire('landingpage.service-section')
-  {{-- @livewire('landingpage.client-section', ['client' => $client]) --}}
   @livewire('landingpage.kelas-section')
-  @livewire('landingpage.instruktur-section', ['instruktur' => $instruktur])
+  @livewire('landingpage.instruktur-section')
   @livewire('landingpage.contact-section')
   @livewire('landingpage.footer')
   @livewireScripts

@@ -20,7 +20,7 @@
                 </p>
             </div>
   
-            <h1 class="flex items-center gap-4 text-xl font-semibold">{{ $kelas[$currSlide]->instruktur->Nama }}<span class="text-base text-slate-500"> - Rp.{{ number_format($kelas[$currSlide]['Biaya'], 0, ',', '.') }} - Instruktur</span></h1>
+            <h1 class="flex items-center gap-4 text-xl font-semibold">{{ $kelas[$currSlide]->instruktur->Nama }}<span class="text-base text-[#f04e3c]"> - Rp.{{ number_format($kelas[$currSlide]['Biaya'], 0, ',', '.') }} <span class="text-base text-slate-500">- Instruktur</span></span></h1>
   
             <div class="flex justify-start mt-20 text-4xl max-lg:mt-5">
                 @foreach ($kelas as $index => $val)
