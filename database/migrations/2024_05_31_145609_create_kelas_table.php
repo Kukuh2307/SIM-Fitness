@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('id_Instruktur');
             $table->string('Nama_Kelas')->unique();
-            $table->string('Deskripsi');
+            $table->text('Deskripsi');
             $table->string('Biaya');
             $table->dateTime('Waktu_Mulai');
             $table->dateTime('Waktu_Selesai');

@@ -18,7 +18,16 @@
             <div class="space-y-4">
                 <div>
                     <label for="nama_kelas" class="font-semibold">Nama Kelas</label>
-                    <input type="text" id="nama_kelas" name="nama_kelas" wire:model.lazy="nama_kelas" class="block w-full p-3 mt-1 text-black border border-gray-200 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Nama Kelas">
+                    <select id="nama_kelas" name="nama_kelas" wire:model.lazy="nama_kelas" class="block w-full p-3 mt-1 text-black border border-gray-200 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent">
+                        <option value="">Pilih Kelas</option>
+                        @foreach($kelas as $k)
+                            <option value="{{ $k->Nama_Kelas }}">{{ $k->Nama_Kelas }}</option>
+                        @endforeach
+                        <option value="other" {{ $nama_kelas == 'other' ? 'selected' : '' }}>Other</option>
+                    </select>
+                    @if ($nama_kelas == 'other')
+                        <input type="text" id="nama_kelas_other" name="nama_kelas_other" wire:model.defer="nama_kelas_other" class="block w-full p-3 mt-1 text-black border border-gray-200 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Input kelas lainnya">
+                    @endif
                     @error('nama_kelas') <span class="text-sm text-red-600">{{ $message }}</span> @enderror
                 </div>
 
@@ -81,10 +90,11 @@
                     @if($btnUpdate)
                         <input type="file" id="foto" name="foto" wire:model="foto" class="block w-full p-3 mt-1 text-black border border-gray-200 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent">
                         <img src="{{ asset('storage/'.$fotoLama) }}" class="w-32 h-32 mt-2 rounded-md" alt="Foto Kelas">
+                        @error('foto') <span class="text-sm text-red-600">{{ $message }}</span> @enderror
                     @else
                         <input type="file" id="fotoLama" name="fotoLama" wire:model="fotoLama" class="block w-full p-2 mt-1 text-black bg-white rounded-lg shadow-sm focus:border-indigo-500 focus:ring focus:ring-red-600 focus:ring-opacity-50">
+                        @error('fotoLama') <span class="text-sm text-red-600">{{ $message }}</span> @enderror
                     @endif
-                    @error('foto') <span class="text-sm text-red-600">{{ $message }}</span> @enderror
                 </div>
             </div>
         </div>

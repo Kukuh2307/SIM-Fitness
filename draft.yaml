@@ -14,7 +14,7 @@ models:
   Kelas:
     id_Instruktur: int
     Nama_Kelas: string unique
-    Deskripsi: string
+    Deskripsi: text
     Biaya: int
     Waktu_Mulai: times
     Waktu_Selesai: times
