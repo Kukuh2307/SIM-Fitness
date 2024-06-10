@@ -4,7 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Landing Page</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.bunny.net">
+  <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+
+  <!-- Script -->
+  @vite(['resources/css/app.css', 'resources/js/app.js'])
+  
+  @livewireStyles
 </head>
 <body class="text-white bg-slate-900 font-helvetica">
 
@@ -17,10 +25,11 @@
       <ul class="flex space-x-6 font-bold">
         <li><a href="#home" class="hover:text-gray-300">Home</a></li>
         <li><a {{ url('about') }}  class="hover:text-gray-300">About</a></li>
-        <li><a {{ url('service') }} class="hover:text-gray-300">Services</a></li>
-        <li><a {{ url('contact') }} class="hover:text-gray-300">Contact</a></li>
+        <li><a href="" class="hover:text-gray-300">Kelas</a></li>
+        <li><a {{ url('contact') }} class="hover:text-gray-300">Instructor</a></li>
         @auth
         <li><a href="{{ url('logout') }}" class="hover:text-gray-300">{{ auth()->user()->name }}</a></li>
+        <li><a href="{{ ('profile') }}" class="hover:text-gray-300">Dashboard</a></li>
         @else
         <li><a href="{{ url('login') }}" class="hover:text-gray-300">Login</a></li>
         <li><a href="{{ url('register') }}" class="hover:text-gray-300">Register</a></li>
@@ -30,7 +39,7 @@
   </nav>
 
   <!-- Hero Section -->
-  <section id="home" class="flex items-center justify-start h-screen bg-center bg-cover backdrop-blur-lg" style="background-image: url('https://images.unsplash.com/photo-1599121118834-14b8ab00020c?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
+  <section id="home" class="flex items-center justify-center h-screen bg-center bg-cover " style="background-image: url('https://images.unsplash.com/photo-1599121118834-14b8ab00020c?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
     <div class="relative p-8 ml-12 text-left text-white">
       <h1 class="mb-4 text-5xl font-bold">Welcome to Fit Banget</h1>
       <p class="mb-8 text-lg">Get a Personalized Fitness Plan That Gets Results</p>
@@ -49,36 +58,39 @@
 
   <!-- Services Section -->
   <section id="services" class="py-20 bg-gradient-to-tr from-red-600 to-slate-900">
-    <div class="container mx-auto text-center">
-      <h2 class="mb-8 text-4xl font-bold">Our Training Program</h2>
-      <div class="grid grid-cols-1 gap-8 md:grid-cols-4">
-        <div class="p-6 text-black bg-white rounded-lg">
-          <img src="{{ asset('img/pt-img.jpg')}}" alt="Personal Trainer" class="w-full h-48 mb-4 rounded-lg object-cover">
-          <h3 class="mb-4 text-2xl font-bold">Personal Trainer</h3>
-          <p>High-quality service to meet your needs.</p>
-          <a href="#personal-trainer" class="inline-block px-4 py-2 mt-4 text-white bg-red-600 rounded-full hover:bg-red-700">View More</a>
+        <div class="container mx-auto text-center">
+            <h2 class="mb-8 text-4xl font-bold">Our Training Program</h2>
+            <div class="grid grid-cols-1 gap-8 md:grid-cols-4">
+                <div class="p-6 text-black bg-white rounded-lg">
+                    <img src="{{ asset('img/pt-img.jpg') }}" alt="Personal Trainer" class="w-full h-48 mb-4 rounded-lg object-cover">
+                    <h3 class="mb-4 text-2xl font-bold">Personal Trainer</h3>
+                    <p>High-quality service to meet your needs.</p>
+                    <button @click="$wire.emit('showRegisterModal')" class="inline-block px-4 py-2 mt-4 text-white bg-red-600 rounded-full hover:bg-red-700">Daftar</button>
+                </div>
+                <div class="p-6 text-black bg-white rounded-lg">
+                    <img src="{{ asset('img/group-fitness.jpg') }}" alt="Group Fitness" class="w-full h-48 mb-4 rounded-lg object-cover">
+                    <h3 class="mb-4 text-2xl font-bold">Group Fitness</h3>
+                    <p>Reliable and efficient solutions for your business.</p>
+                    <button @click="$wire.emit('showRegisterModal')" class="inline-block px-4 py-2 mt-4 text-white bg-red-600 rounded-full hover:bg-red-700">Daftar</button>
+                </div>
+                <div class="p-6 text-black bg-white rounded-lg">
+                    <img src="{{ asset('img/cardio.jpg') }}" alt="Cardio Exercise" class="w-full h-48 mb-4 rounded-lg object-cover">
+                    <h3 class="mb-4 text-2xl font-bold">Cardio Exercise</h3>
+                    <p>Expertise and professionalism at every step.</p>
+                    <button @click="$wire.emit('showRegisterModal')" class="inline-block px-4 py-2 mt-4 text-white bg-red-600 rounded-full hover:bg-red-700">Daftar</button>
+                </div>
+                <div class="p-6 text-black bg-white rounded-lg">
+                    <img src="{{ asset('img/weight.jpg') }}" alt="Weight Exercise" class="w-full h-48 mb-4 rounded-lg object-cover">
+                    <h3 class="mb-4 text-2xl font-bold">Weight Exercise</h3>
+                    <p>Expertise and professionalism at every step.</p>
+                    <button @click="$wire.emit('showRegisterModal')" class="inline-block px-4 py-2 mt-4 text-white bg-red-600 rounded-full hover:bg-red-700">Daftar</button>
+                </div>
+            </div>
         </div>
-        <div class="p-6 text-black bg-white rounded-lg">
-        <img src="{{ asset('img/group-fitness.jpg')}}" alt="Personal Trainer" class="w-full h-48 mb-4 rounded-lg object-cover">
-          <h3 class="mb-4 text-2xl font-bold">Group Fitness</h3>
-          <p>Reliable and efficient solutions for your business.</p>
-          <a href="#group-fitness" class="inline-block px-4 py-2 mt-4 text-white bg-red-600 rounded-full hover:bg-red-700">View More</a>
-        </div>
-        <div class="p-6 text-black bg-white rounded-lg">
-        <img src="{{ asset('img/cardio.jpg')}}" alt="Personal Trainer" class="w-full h-48 mb-4 rounded-lg object-cover">
-          <h3 class="mb-4 text-2xl font-bold">Cardio exercise</h3>
-          <p>Expertise and professionalism at every step.</p>
-          <a href="#Cardio-Exercise" class="inline-block px-4 py-2 mt-4 text-white bg-red-600 rounded-full hover:bg-red-700">View More</a>
-        </div>
-        <div class="p-6 text-black bg-white rounded-lg">
-        <img src="{{ asset('img/weight.jpg')}}" alt="Personal Trainer" class="w-full h-48 mb-4 rounded-lg object-cover">
-          <h3 class="mb-4 text-2xl font-bold">Weight Exercise</h3>
-          <p>Expertise and professionalism at every step.</p>
-          <a href="#weigth-execise" class="inline-block px-4 py-2 mt-4 text-white bg-red-600 rounded-full hover:bg-red-700">View More</a>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
+
+  
+
   
   <!-- Instructor Section -->
   <section id="instuctor" class="py-20 bg-slate-900">
@@ -113,7 +125,7 @@
   <section id="contact" class="py-20 bg-slate-900">
     <div class="container mx-auto text-center">
       <h2 class="mb-8 text-4xl font-bold">Mau ngeGym Tanpa member?</h2>
-      <button>Gym harian</button>
+      <button href="{{ url('register') }}">Gym harian</button>
   </section>
 
   <!-- Footer -->
@@ -122,6 +134,7 @@
       <p>&copy; 2024 Fit Banget. All rights reserved.</p>
     </div>
   </footer>
-
+  @livewireScripts
+  @livewire('register-modal')
 </body>
 </html>

@@ -7,6 +7,8 @@ use App\Http\Controllers\TransaksiController;
 use App\Livewire\Informasi;
 use App\Livewire\Instruktur;
 use App\Livewire\Kelas;
+use App\Livewire\kelasUser;
+use App\Livewire\UserDashboard;
 
 
 Route::view('/', 'landingpage.home');
@@ -39,4 +41,9 @@ Route::get('metode-pembayaran', [AdminController::class, 'metodePembayaran'])->m
 
 
 Route::get('/transaksi', [TransaksiController::class, 'index'])->name('transaksi');
+Route::get('/kelasUser', [kelasUser::class, 'render'])->name('kelasUser');
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/profile', UserDashboard::class)->name('profile.dashboard');
+});
 require __DIR__ . '/auth.php';

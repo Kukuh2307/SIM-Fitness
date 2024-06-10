@@ -194,7 +194,8 @@ new #[Layout('layouts.guest')] class extends Component
                 </div>
 
                 <div class="flex flex-col items-center justify-end mt-4">
-                <button href="{{ route('transaksi') }}" wire:navigate class="block w-full py-2 mt-4 font-semibold text-white bg-red-600 rounded-2xl">Transaksi</button>    
+                <button type="submit" class="block w-full py-2 mt-4 font-semibold text-white bg-red-600 rounded-2xl">Register</button>
+                <!-- <button href="{{ route('transaksi') }}" wire:navigate class="block w-full py-2 mt-4 font-semibold text-white bg-red-600 rounded-2xl">Transaksi</button>     -->
                 <!-- <button href="/transaksi" type="submit" class="block w-full py-2 mt-4 font-semibold text-white bg-red-600 rounded-2xl">Transaksi</button>
                     <a class="mt-3 text-sm text-gray-600 underline rounded-md hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}" wire:navigate>
                         {{ __('Already registered?') }}
