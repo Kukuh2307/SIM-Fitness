@@ -4,22 +4,27 @@ namespace App\Livewire\Instruktur;
 
 use Livewire\Component;
 use App\Models\Instruktur;
+use App\Models\Kelas;
+use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Storage;
-use Livewire\Features\SupportFileUploads\WithFileUploads;
 
 class CreateInstruktur extends Component
 {
     use WithFileUploads;
+
     public $nama;
     public $id_instruktur;
     public $email;
     public $deskripsi;
     public $spesialis;
+    public $spesialis_other;
     public $biaya;
     public $foto;
     public $fotoLama;
     public $btnUpdate = false;
-    public $listeners = [
+    public $spesialisOptions = [];
+
+    protected $listeners = [
         'instruktur-edit' => 'loadInstruktur',
         'instruktur-delete' => 'delete',
     ];
@@ -28,14 +33,15 @@ class CreateInstruktur extends Component
     {
         $instruktur = Instruktur::find($event['id']);
         if ($instruktur) {
+            $this->id_instruktur = $instruktur->id;
             $this->nama = $instruktur->Nama;
             $this->email = $instruktur->Email;
             $this->deskripsi = $instruktur->Deskripsi;
-            $this->spesialis = $instruktur->Spesialis;
-            $this->biaya = $instruktur->Biaya;
+            $this->spesialis = in_array($instruktur->Spesialis, $this->spesialisOptions->pluck('Nama_Kelas')->toArray()) ? $instruktur->Spesialis : 'other';
+            $this->spesialis_other = $this->spesialis === 'other' ? $instruktur->Spesialis : null;
+            $this->biaya = (int) $instruktur->Biaya;
             $this->btnUpdate = true;
             $this->fotoLama = $instruktur->Foto;
-            $this->id_instruktur = $instruktur->id;
         }
     }
 
@@ -59,20 +65,25 @@ class CreateInstruktur extends Component
             'fotoLama.required' => 'Foto harus diisi',
             'fotoLama.image' => 'File harus berupa gambar',
             'fotoLama.max' => 'File terlalu besar',
-            'fotoLama.mimes' => 'File harus jpeg,png,jpg',
+            'fotoLama.mimes' => 'File harus jpeg, png, jpg',
         ];
+
         $this->validate($rules, $messages);
+
+        $spesialis = $this->spesialis == 'other' ? $this->spesialis_other : $this->spesialis;
+
         Instruktur::create([
             'Nama' => $this->nama,
             'Email' => $this->email,
             'Deskripsi' => $this->deskripsi,
-            'Spesialis' => $this->spesialis,
+            'Spesialis' => $spesialis,
             'Biaya' => $this->biaya,
             'Foto' => $this->fotoLama->store('images', 'public'),
         ]);
-        $this->reset(['nama', 'email', 'deskripsi', 'spesialis', 'biaya', 'fotoLama', 'btnUpdate']);
+
+        $this->reset(['nama', 'email', 'deskripsi', 'spesialis', 'spesialis_other', 'biaya', 'fotoLama', 'btnUpdate']);
         $this->dispatch('InstrukturAdded');
-        session()->flash('success', 'Instruktur Berhasil ditambnahkan');
+        session()->flash('success', 'Instruktur Berhasil ditambahkan');
     }
 
     public function update()
@@ -95,8 +106,11 @@ class CreateInstruktur extends Component
         ];
 
         $this->validate($rules, $messages);
+
         $data = Instruktur::find($this->id_instruktur);
         if ($data) {
+            $spesialis = $this->spesialis == 'other' ? $this->spesialis_other : $this->spesialis;
+
             if ($this->foto && $this->foto instanceof \Illuminate\Http\UploadedFile) {
                 $fotoPath = $this->foto->store('images', 'public');
             } elseif ($this->foto && $this->foto !== $data->Foto) {
@@ -110,11 +124,12 @@ class CreateInstruktur extends Component
                 'Nama' => $this->nama,
                 'Email' => $this->email,
                 'Deskripsi' => $this->deskripsi,
-                'Spesialis' => $this->spesialis,
+                'Spesialis' => $spesialis,
                 'Biaya' => $this->biaya,
                 'Foto' => $fotoPath,
             ]);
-            $this->reset(['nama', 'email', 'deskripsi', 'spesialis', 'biaya', 'foto', 'btnUpdate']);
+
+            $this->reset(['nama', 'email', 'deskripsi', 'spesialis', 'spesialis_other', 'biaya', 'foto', 'btnUpdate']);
             $this->dispatch('InstrukturUpdated');
             session()->flash('success', 'Instruktur Berhasil diupdate');
         }
@@ -135,6 +150,9 @@ class CreateInstruktur extends Component
 
     public function render()
     {
-        return view('livewire.instruktur.create-instruktur', []);
+        $this->spesialisOptions = Kelas::all();
+        return view('livewire.instruktur.create-instruktur', [
+            'spesialisOptions' => $this->spesialisOptions,
+        ]);
     }
 }

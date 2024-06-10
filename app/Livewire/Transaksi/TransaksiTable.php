@@ -6,12 +6,23 @@ use App\Models\User;
 use Livewire\Component;
 use App\Models\Transaksi;
 use Livewire\WithPagination;
+use Illuminate\Support\Facades\URL;
 
 class TransaksiTable extends Component
 {
     use WithPagination;
+
     public $search = '';
+    public $isDashboard = false; // Properti untuk menentukan apakah sedang di halaman dashboard
     protected $queryString = ['search'];
+
+    public function mount()
+    {
+        // Check if the current URL is /dashboard
+        if (URL::current() === url('dashboard')) {
+            $this->isDashboard = true;
+        }
+    }
 
     public function updatingSearch()
     {
@@ -21,14 +32,12 @@ class TransaksiTable extends Component
     public function approve($id)
     {
         $transaksi = Transaksi::find($id);
-        // dd($transaksi);
         $user = User::where('nama', $transaksi->Nama_User)->first();
-        // dd($user);
+
         if ($transaksi) {
-            $transaksi->update([
-                'Status' => 'success'
-            ]);
+            $transaksi->update(['Status' => 'success']);
         }
+
         if ($user) {
             $user->update([
                 'Role' => 'member',
@@ -36,6 +45,7 @@ class TransaksiTable extends Component
                 'Tanggal_Berakhir' => now()->addMonth()
             ]);
         }
+
         $this->reset('search');
         session()->flash('success', 'Transaksi Berhasil diapprove');
     }
@@ -43,30 +53,39 @@ class TransaksiTable extends Component
     public function reject($id)
     {
         $transaksi = Transaksi::find($id);
+
         if ($transaksi) {
-            $transaksi->update([
-                'Status' => 'failed'
-            ]);
+            $transaksi->update(['Status' => 'failed']);
         }
+
         $this->reset('search');
         session()->flash('success', 'Transaksi Berhasil dibatalkan');
     }
 
-
-    public function render()
+    private function getTransaksisQuery()
     {
-        $transaksisQuery = Transaksi::orderBy('status', 'asc')->orderBy('created_at', 'desc');
+        $query = Transaksi::query();
+
+        if ($this->isDashboard) {
+            $query->where('status', 'pending');
+        }
+
+        $query->orderBy('created_at', 'desc');
 
         if (!empty($this->search)) {
-            $transaksisQuery->where(function ($query) {
-                $query->where('Nama_User', 'like', '%' . $this->search . '%')
+            $query->where(function ($q) {
+                $q->where('Nama_User', 'like', '%' . $this->search . '%')
                     ->orWhere('Nama_Instruktur', 'like', '%' . $this->search . '%')
                     ->orWhere('Nama_Kelas', 'like', '%' . $this->search . '%');
             });
         }
 
-        $transaksis = $transaksisQuery->paginate(10);
+        return $query;
+    }
 
+    public function render()
+    {
+        $transaksis = $this->getTransaksisQuery()->paginate(10);
         return view('livewire.transaksi.transaksi-table', [
             'transaksis' => $transaksis,
             'search' => $this->search ?? ''

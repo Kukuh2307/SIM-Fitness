@@ -21,7 +21,6 @@ class InstrukturFactory extends Factory
     public function definition(): array
     {
         return [
-            'id_Kelas' => $this->faker->word(),
             'Nama' => $this->faker->word(),
             'Email' => $this->faker->word(),
             'Foto' => $this->faker->word(),

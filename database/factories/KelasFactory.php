@@ -29,6 +29,7 @@ class KelasFactory extends Factory
             'Waktu_Selesai' => $this->faker->dateTime(),
             'Hari' => $this->faker->word(),
             'Kuota' => $this->faker->word(),
+            'Foto' => $this->faker->word(),
         ];
     }
 }

@@ -1,39 +1,37 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Home\HomeController;
-use App\Http\Controllers\Admin\AdminController;
-use App\Livewire\Informasi;
 use App\Livewire\Kelas;
-use App\Livewire\Instruktur;
+use App\Livewire\Member;
+use App\Livewire\Informasi;
 use App\Livewire\Transaksi;
+use App\Livewire\Instruktur;
+use App\Livewire\ListingAlat;
+use App\Livewire\Landingpage\Home;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\AdminController;
+use App\Livewire\Dashboard;
+use GuzzleHttp\Middleware;
 
-Route::view('/', 'landingpage.home');
-
-// Route::view('dashboard', 'dashboard')
-//     ->middleware(['auth', 'verified', 'admin'])
-//     ->name('dashboard');
+Route::redirect('/', 'home');
 
 Route::get('/logout', [AdminController::class, 'logout'])->name('logout');
-
-Route::get('dashboard', [AdminController::class, 'index'])->middleware(['auth', 'verified', 'admin'])->name('dashboard');
 
 Route::view('profile', 'profile')
     ->middleware(['auth', 'admin'])
     ->name('profile');
 
+Route::get('home', [Home::class, 'render'])->name('home');
 
 
-Route::get('home', [HomeController::class, 'index'])->name('home');
-Route::get('/informasi', [Informasi::class, 'render'])->name('informasi');
-Route::get('/kelas', [Kelas::class, 'render'])->name('kelas')->name('kelas');
-Route::get('/instruktur', [Instruktur::class, 'render'])->name('instruktur');
-Route::get('/transaksi', [Transaksi::class, 'render'])->name('transaksi');
-
-
-Route::get('members', [AdminController::class, 'members'])->middleware(['auth', 'verified', 'admin'])->name('members');
-Route::get('list-alat', [AdminController::class, 'listAlat'])->middleware(['auth', 'verified', 'admin'])->name('list-alat');
-Route::get('metode-pembayaran', [AdminController::class, 'metodePembayaran'])->middleware(['auth', 'verified', 'admin'])->name('metode-pembayaran');
+// ADMIN
+Route::get('/dashboard', [Dashboard::class, 'render'])->middleware(['auth', 'verified', 'admin'])->name('dashboard');
+Route::get('/informasi', [Informasi::class, 'render'])->middleware(['auth', 'verified', 'admin'])->name('informasi');
+Route::get('/kelas', [Kelas::class, 'render'])->Middleware(['auth', 'verified', 'admin'])->name('kelas');
+Route::get('/instruktur', [Instruktur::class, 'render'])->middleware(['auth', 'verified', 'admin'])->name('instruktur');
+Route::get('/transaksi', [Transaksi::class, 'render'])->middleware(['auth', 'verified', 'admin'])->name('transaksi');
+Route::get('members', [Member::class, 'render'])->middleware(['auth', 'verified', 'admin'])->name('members');
+Route::get('listing-alat', [ListingAlat::class, 'render'])->middleware(['auth', 'verified', 'admin'])->name('list-alat');
+Route::get('transaksi', [Transaksi::class, 'render'])->middleware(['auth', 'verified', 'admin'])->name('transaksi');
 
 
 require __DIR__ . '/auth.php';

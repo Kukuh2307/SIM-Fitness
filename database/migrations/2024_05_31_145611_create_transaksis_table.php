@@ -12,13 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('transaksis', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->string('Nama_User');
             $table->string('Nama_Instruktur');
             $table->string('Nama_Kelas');
             $table->string('Total_Biaya');
-            $table->enum('Metode_Pembayaran', ['BCA', 'OVO', 'DANA', 'GOPAY', 'LINKAJA', 'SHOPEEPAY'])->default('BCA');
-            $table->enum('Status', ['pending', 'success', 'failed'])->default('pending');
+            $table->string('Metode_Pembayaran');
+            $table->string('Status');
             $table->timestamps();
         });
     }

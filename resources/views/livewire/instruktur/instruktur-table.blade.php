@@ -1,19 +1,19 @@
 <div class="overflow-x-auto">
     <table class="min-w-full my-4 divide-y divide-gray-200">
-        <thead>
+        <thead class="bg-gray-50">
             <tr>
-                <th class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">{{ __('Nomor') }}</th>
-                <th class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">{{ __('Foto') }}</th>
-                <th class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">{{ __('Nama') }}</th>
-                <th class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">{{ __('Email') }}</th>
-                <th class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">{{ __('Spesialis') }}</th>
-                <th class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">{{ __('Biaya') }}</th>
-                <th class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">{{ __('Aksi') }}</th>
+                <th class="px-6 py-3 text-xs font-bold tracking-wider text-left text-black-500 uppercase">{{ __('Nomor') }}</th>
+                <th class="px-6 py-3 text-xs font-bold tracking-wider text-left text-black-500 uppercase">{{ __('Foto') }}</th>
+                <th class="px-6 py-3 text-xs font-bold tracking-wider text-left text-black-500 uppercase">{{ __('Nama') }}</th>
+                <th class="px-6 py-3 text-xs font-bold tracking-wider text-left text-black-500 uppercase">{{ __('Email') }}</th>
+                <th class="px-6 py-3 text-xs font-bold tracking-wider text-left text-black-500 uppercase">{{ __('Spesialis') }}</th>
+                <th class="px-6 py-3 text-xs font-bold tracking-wider text-left text-black-500 uppercase">{{ __('Biaya') }}</th>
+                <th class="px-6 py-3 text-xs font-bold tracking-wider text-left text-black-500 uppercase">{{ __('Aksi') }}</th>
             </tr>
         </thead>
         <tbody class="bg-white divide-y divide-gray-200">
             @foreach ($instrukturs as $key => $instruktur)
-                <tr>
+                <tr class="hover:bg-gray-50">
                     <td class="px-6 py-4 whitespace-nowrap">{{ $loop->index + 1 }}</td>
                     <td class="px-6 py-4 whitespace-nowrap">
                         @if ($instruktur->Foto)
