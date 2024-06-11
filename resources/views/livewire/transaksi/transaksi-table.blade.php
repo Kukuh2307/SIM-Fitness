@@ -44,7 +44,18 @@
                     <td class="px-6 py-4 whitespace-nowrap">{{ $transaksi->Nama_Kelas }}</td>
                     <td class="px-6 py-4 whitespace-nowrap">{{ $transaksi->Total_Biaya }}</td>
                     <td class="px-6 py-4 whitespace-nowrap">{{ $transaksi->Metode_Pembayaran }}</td>
-                    <td class="px-6 py-4 whitespace-nowrap">{{ $transaksi->Status }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="
+                            @if ($transaksi->Status == 'success') text-green-500 
+                            @elseif ($transaksi->Status == 'failed') text-red-500 
+                            @elseif ($transaksi->Status == 'pending') text-yellow-500 
+                            @elseif ($transaksi->Status == 'reject') text-gray-500 
+                            @else text-blue-500 
+                            @endif
+                        ">
+                            {{ $transaksi->Status }}
+                        </span>
+                    </td>
                     @if ($transaksi->Status == 'pending')                        
                     <td class="px-6 py-4 whitespace-nowrap">
                         <div class="flex space-x-2">
@@ -56,6 +67,7 @@
                 </tr>
             @endforeach
         </tbody>
+
     </table>
     <div class="mt-4">
         {{ $transaksis->links() }}
