@@ -1,23 +1,25 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="text-xl font-semibold leading-tight text-gray-800">
-            {{ __('Kelas') }}
-        </h2>
+        {{ __('Kelas') }}
     </x-slot>
 
-    <div class="py-4">
-        <div class="p-4 bg-white shadow sm:p-8 sm:rounded-lg">
-            <div class="max-w-[95rem]">
+    <div class="container min-h-screen p-4 mx-auto bg-gray-100 sm:p-8">
+        
+        {{-- Create Kelas Section --}}
+        <div class="p-6 mb-8 bg-white shadow-lg sm:rounded-lg">
+            <div class="max-w-full">
+                <h3 class="mb-4 text-lg font-semibold text-gray-700">Create Kelas</h3>
                 @livewire('kelas.create-kelas')
             </div>
         </div>
 
-        <div class="py-6">
-            <div class="p-4 bg-white shadow sm:p-8 sm:rounded-lg">
-                <div class="max-w-[95rem]">
-                    @livewire('kelas.kelas-table')
-                </div>
+        {{-- Kelas Table Section --}}
+        <div class="p-6 bg-white shadow-lg sm:rounded-lg">
+            <div class="max-w-full overflow-x-auto">
+                <h3 class="px-4 py-2 mb-2 font-bold text-white bg-red-600 rounded-t-lg">Daftar Kelas</h3>
+                @livewire('kelas.kelas-table')
             </div>
         </div>
+        
     </div>
 </x-app-layout>

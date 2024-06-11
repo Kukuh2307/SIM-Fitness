@@ -1,3 +1,52 @@
+@import url("https://fonts.googleapis.com/css2?family=Teko:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@200;300;400;500;600;700;800;900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.logo {
+    width: 10rem;
+    height: auto;
+    margin: 1rem auto;
+}
+html {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+.App {
+    overflow-x: hidden;
+}
+::-webkit-scrollbar {
+    width: 5px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: grey;
+    height: 100px;
+    border-radius: 2px;
+}
+.background {
+    background-color: red;
+    color: white;
+}
+
+@layer components {
+    .buttonDiv {
+        @apply absolute inset-0 w-0 bg-red-800 duration-300 ease-in-out group-hover:w-full;
+    }
+    .buttonDiv2 {
+        @apply absolute inset-0 w-0 bg-slate-400 duration-300 ease-in-out group-hover:w-full;
+    }
+    .buttonSpan {
+        @apply relative text-white uppercase;
+    }
+    .buttonSpan2 {
+        @apply relative text-[#f04e3c] uppercase;
+    }
+    .font {
+        font-family: "Barlow", sans-serif;
+    }
+    .input {
+        @apply outline-none border-b-[1px] border-slate-400 text-xl placeholder:text-slate-500 placeholder:text-lg py-3 px-3 font-sans max-sm:text-base max-sm:placeholder:text-base;
+    }
+}
