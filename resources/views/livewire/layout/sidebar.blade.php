@@ -1,8 +1,8 @@
 <div class="fixed w-64 h-screen text-white from-red-600 to-slate-800 bg-gradient-to-tr backdrop-blur-md">
     <div class="flex items-center justify-center p-4">
-        <img src="{{ asset('images/logo.png') }}" alt="Logo Fit Banget" class="h-auto w-45">
+        <img src="{{ asset('images/logo-rev2.png') }}" alt="Logo Fit Banget" class="h-auto w-45">
     </div>
-    <ul class="mt-10">
+    <ul class="-mt-10">
         <li class="flex items-center justify-start px-10 py-5 text-xl font-bold hover:bg-red-700 {{ $title == 'Dashboard' ? 'bg-red-700' : '' }}">
             <img src="{{ asset('images/dashboard.png') }}" alt="Dashboard Icon" class="w-10 mr-5 filter invert">
             <a href="{{ url('dashboard') }}" class="w-full text-left">Dashboard</a>

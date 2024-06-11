@@ -23,6 +23,7 @@ class CreateKelas extends Component
     public $foto;
     public $kuota;
     public $hari;
+    public $kelas;
     public $instrukturs = [];
     public $days = ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"];
     public $btnUpdate = false;
@@ -173,8 +174,10 @@ class CreateKelas extends Component
     public function render()
     {
         $this->instrukturs = Instruktur::all();
+        $this->kelas = KelasModel::all();
         return view('livewire.kelas.create-kelas', [
             'instrukturs' => $this->instrukturs,
+            'kelas' => $this->kelas,
             'days' => $this->days,
         ]);
     }

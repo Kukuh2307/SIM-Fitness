@@ -20,7 +20,7 @@ class CheckUserMiddleware
         // dd(Auth::user()->Role);
         if ($request->user()->Role === 'admin') {
             return $next($request);
-        } elseif ($request->user()->Role === 'user') {
+        } elseif ($request->user()->Role === 'user' || $request->user()->Role === 'member') {
             return redirect('/home');
         } else {
             return redirect('/login');
