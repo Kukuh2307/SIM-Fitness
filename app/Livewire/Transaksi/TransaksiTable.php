@@ -76,7 +76,9 @@ class TransaksiTable extends Component
             $query->where(function ($q) {
                 $q->where('Nama_User', 'like', '%' . $this->search . '%')
                     ->orWhere('Nama_Instruktur', 'like', '%' . $this->search . '%')
-                    ->orWhere('Nama_Kelas', 'like', '%' . $this->search . '%');
+                    ->orWhere('Nama_Kelas', 'like', '%' . $this->search . '%')
+                    ->orWhere('Metode_Pembayaran', 'like', '%' . $this->search . '%')
+                    ->orWhere('Status', 'like', '%' . $this->search . '%');
             });
         }
 
