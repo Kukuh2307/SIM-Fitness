@@ -3,11 +3,22 @@
 namespace App\Livewire\Member;
 
 use Livewire\Component;
+use Livewire\WithPagination;
 use App\Models\User as Member;
 use Illuminate\Support\Facades\DB;
 
 class MemberTable extends Component
 {
+    use WithPagination;
+
+    public $search = '';
+
+    protected $updatesQueryString = ['search'];
+
+    public function updatingSearch()
+    {
+        $this->resetPage();
+    }
 
     public function render()
     {
@@ -22,10 +33,17 @@ class MemberTable extends Component
         )
             ->join('transaksis', 'users.nama', '=', 'transaksis.Nama_User')
             ->where('users.role', 'member')
+            ->where(function ($query) {
+                $query->where('users.nama', 'like', '%' . $this->search . '%')
+                    ->orWhere('users.Email', 'like', '%' . $this->search . '%')
+                    ->orWhere('transaksis.Nama_Kelas', 'like', '%' . $this->search . '%')
+                    ->orWhere('transaksis.Nama_Instruktur', 'like', '%' . $this->search . '%');
+            })
             ->paginate(10);
 
         return view('livewire.member.member-table', [
-            'members' => $members
+            'members' => $members,
+            'search' => $this->search
         ]);
     }
 }
