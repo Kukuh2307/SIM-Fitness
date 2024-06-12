@@ -10,7 +10,11 @@
                     @livewire('dashboard.instructor')
                     @livewire('dashboard.kelas')
                     @livewire('dashboard.income')
+                </div>
+
+                <div class="grid gap-6 px-6 mb-8" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); justify-content: center;">
                     @livewire('dashboard.alat')
+                    @livewire('dashboard.informasi')
                 </div>
 
                 <!-- Transactions Table -->
@@ -24,3 +28,4 @@
         </div>
     </div>
 </x-app-layout>
+

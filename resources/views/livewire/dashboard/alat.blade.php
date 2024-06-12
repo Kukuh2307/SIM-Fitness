@@ -1,9 +1,9 @@
 <!-- Alat Card -->
-<div class="p-4 bg-white rounded-lg shadow-md">
+<div class="flex justify-center p-4 bg-white rounded-lg shadow-md">
     <div class="flex items-center">
         <div class="p-3 bg-blue-500 rounded-full">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4V6M6.343 6.343l1.414 1.414M4 12h2M6.343 17.657l1.414-1.414M12 18v2m5.657-4.343l-1.414-1.414M18 12h-2m1.657-5.657l-1.414 1.414" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 17h8m0 0V9m0 8l-8-8-4 4m8 4l-4-4m4 8h12a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
             </svg>
         </div>
         <div class="ml-4">
@@ -12,3 +12,4 @@
         </div>
     </div>
 </div>
+
