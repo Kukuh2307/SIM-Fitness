@@ -50,3 +50,4 @@ html {
         @apply outline-none border-b-[1px] border-slate-400 text-xl placeholder:text-slate-500 placeholder:text-lg py-3 px-3 font-sans max-sm:text-base max-sm:placeholder:text-base;
     }
 }
+

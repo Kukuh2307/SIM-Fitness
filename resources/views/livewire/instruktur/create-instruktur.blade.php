@@ -16,13 +16,13 @@
         @csrf
         <div class="flex items-start gap-4">
             <div class="flex flex-col w-full gap-3 md:w-1/2">
-                <input type="text" name="nama" wire:model.lazy="nama" class="w-full p-2 text-black bg-white rounded-lg" placeholder="Nama">
+                <input type="text" name="nama" wire:model.lazy="nama" class="w-full p-2 text-black bg-white border border-gray-200 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Nama">
                 @error('nama') <span class="text-sm text-red-600">{{ $message }}</span> @enderror
 
-                <input type="email" name="email" wire:model.lazy="email" class="w-full p-2 text-black bg-white rounded-lg" placeholder="Email">
+                <input type="email" name="email" wire:model.lazy="email" class="w-full p-2 text-black bg-white border border-gray-200 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Email">
                 @error('email') <span class="text-sm text-red-600">{{ $message }}</span> @enderror
 
-                <textarea name="deskripsi" wire:model.lazy="deskripsi" class="w-full p-2 text-black bg-white rounded-lg" placeholder="Deskripsi" cols="5" rows="5"></textarea>
+                <textarea name="deskripsi" wire:model.lazy="deskripsi" class="w-full p-2 text-black bg-white border border-gray-200 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Deskripsi" cols="5" rows="5"></textarea>
                 @error('deskripsi') <span class="text-sm text-red-600">{{ $message }}</span> @enderror
             </div>
             <div class="flex flex-col w-full gap-3 md:w-1/2">
@@ -38,13 +38,13 @@
                 @endif --}}
                 @error('spesialis') <span class="text-sm text-red-600">{{ $message }}</span> @enderror
 
-                <input type="number" name="biaya" wire:model.lazy="biaya" class="w-full p-2 text-black bg-white rounded-lg" placeholder="Biaya">
+                <input type="number" name="biaya" wire:model.lazy="biaya" class="w-full p-2 text-black bg-white border border-gray-200 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Biaya">
                 @error('biaya') <span class="text-sm text-red-600">{{ $message }}</span> @enderror
                 @if($btnUpdate)
                     <input type="file" name="foto" wire:model="foto" class="w-full p-2 text-black bg-white rounded-lg">
                     <img src="{{ asset('storage/'.$fotoLama) }}" class="w-32 h-32 mt-2 rounded-md" alt="Foto Instruktur">
                 @else
-                    <input type="file" name="fotoLama" wire:model="fotoLama" class="w-full p-2 text-black bg-white rounded-lg">
+                    <input type="file" name="fotoLama" wire:model="fotoLama" class="w-full p-2 text-black bg-white border border-gray-200 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent">
                 @endif
                 @error('foto') <span class="text-sm text-red-600">{{ $message }}</span> @enderror
             </div>

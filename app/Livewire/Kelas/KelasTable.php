@@ -10,12 +10,18 @@ class KelasTable extends Component
 {
     use WithPagination;
 
-    public $dataKelas;
+    public $search = '';
+
+    protected $queryString = ['search'];
 
     protected $listeners = [
-        'KelasAdded', 'KelasUpdated', 'KelasDeleted' =>
-        'render'
+        'KelasAdded', 'KelasUpdated', 'KelasDeleted' => 'render'
     ];
+
+    public function updatingSearch()
+    {
+        $this->resetPage();
+    }
 
     public function edit($id)
     {
@@ -30,6 +36,7 @@ class KelasTable extends Component
     public function render()
     {
         $kelas = KelasModel::with('instruktur')
+            ->where('Nama_Kelas', 'like', '%' . $this->search . '%')
             ->orderBy('created_at', 'desc')
             ->paginate(10);
 
