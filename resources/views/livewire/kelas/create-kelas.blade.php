@@ -21,7 +21,7 @@
                     <select id="nama_kelas" name="nama_kelas" wire:model.lazy="nama_kelas" class="block w-full p-3 mt-1 text-black border border-gray-200 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent">
                         <option value="">Pilih Kelas</option>
                         @foreach($kelas as $k)
-                            <option value="{{ $k->Nama_Kelas }}">{{ $k->Nama_Kelas }}</option>
+                            <option value="{{ $k->Nama_Kelas }}" {{ $nama_kelas == $k->Nama_Kelas ? 'selected' : '' }}>{{ $k->Nama_Kelas }}</option>
                         @endforeach
                         <option value="other" {{ $nama_kelas == 'other' ? 'selected' : '' }}>Other</option>
                     </select>

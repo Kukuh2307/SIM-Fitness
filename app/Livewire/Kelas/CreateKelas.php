@@ -14,6 +14,7 @@ class CreateKelas extends Component
     use WithFileUploads;
     public $kelas_id;
     public $nama_kelas;
+    public $nama_kelas_other;
     public $deskripsi;
     public $biaya;
     public $id_instruktur;
@@ -39,7 +40,8 @@ class CreateKelas extends Component
 
         if ($kelas) {
             $this->kelas_id = $event['id'];
-            $this->nama_kelas = $kelas->Nama_Kelas;
+            $this->nama_kelas = $kelas->Nama_Kelas == 'other' ? 'other' : $kelas->Nama_Kelas;
+            $this->nama_kelas_other = $kelas->Nama_Kelas == 'other' ? $kelas->Nama_Kelas : null;
             $this->deskripsi = $kelas->Deskripsi;
             $this->biaya = $kelas->Biaya;
             $this->id_instruktur = $kelas->id_Instruktur;
@@ -66,7 +68,7 @@ class CreateKelas extends Component
             'fotoLama' => 'required|image|mimes:jpeg,png,jpg|max:2048',
         ];
         $message = [
-            'nama.required' => 'Nama harus diisi',
+            'nama_kelas.required' => 'Nama harus diisi',
             'deskripsi.required' => 'Deskripsi harus diisi',
             'biaya.required' => 'Biaya harus diisi',
             'id_instruktur.required' => 'Silahkan memilih instruktur',
@@ -83,9 +85,10 @@ class CreateKelas extends Component
         ];
 
         $this->validate($rules, $message);
+        $Nama_kelas = $this->nama_kelas == 'other' ? $this->nama_kelas_other : $this->nama_kelas;
 
         KelasModel::create([
-            'Nama_Kelas' => $this->nama_kelas,
+            'Nama_Kelas' => $Nama_kelas,
             'Deskripsi' => $this->deskripsi,
             'Biaya' => $this->biaya,
             'id_Instruktur' => $this->id_instruktur,
@@ -96,7 +99,7 @@ class CreateKelas extends Component
             'Foto' => $this->fotoLama->store('images', 'public'),
         ]);
 
-        $this->reset(['nama_kelas', 'deskripsi', 'biaya', 'id_instruktur', 'waktu_mulai', 'waktu_selesai', 'hari', 'kuota', 'foto']);
+        $this->reset(['nama_kelas', 'nama_kelas_other', 'deskripsi', 'biaya', 'id_instruktur', 'waktu_mulai', 'waktu_selesai', 'hari', 'kuota', 'foto']);
         $this->dispatch('KelasAdded');
         session()->flash('success', 'Kelas Berhasil ditambahkan');
     }
@@ -115,7 +118,7 @@ class CreateKelas extends Component
             'foto' => 'nullable',
         ];
         $messages = [
-            'nama.required' => 'Nama harus diisi',
+            'nama_kelas.required' => 'Nama harus diisi',
             'deskripsi.required' => 'Deskripsi harus diisi',
             'biaya.required' => 'Biaya harus diisi',
             'id_instruktur.required' => 'Silahkan memilih instruktur',
@@ -130,6 +133,7 @@ class CreateKelas extends Component
 
         $data = KelasModel::find($this->kelas_id);
         if ($data) {
+            $nama_kelas = $this->nama_kelas == 'other' ? $this->nama_kelas_other : $this->nama_kelas;
             if ($this->foto && $this->foto instanceof \Illuminate\Http\UploadedFile) {
                 $fotoPath = $this->foto->store('images', 'public');
             } elseif ($this->foto && $this->foto !== $data->Foto) {
@@ -140,7 +144,7 @@ class CreateKelas extends Component
             }
 
             $data->update([
-                'Nama_Kelas' => $this->nama_kelas,
+                'Nama_Kelas' => $nama_kelas,
                 'Deskripsi' => $this->deskripsi,
                 'Biaya' => $this->biaya,
                 'id_Instruktur' => $this->id_instruktur,
@@ -150,14 +154,11 @@ class CreateKelas extends Component
                 'Kuota' => $this->kuota,
                 'Foto' => $fotoPath,
             ]);
-
-            $this->btnUpdate = false;
+            $this->reset(['nama_kelas', 'nama_kelas_other', 'deskripsi', 'biaya', 'id_instruktur', 'waktu_mulai', 'waktu_selesai', 'hari', 'kuota', 'foto']);
             $this->dispatch('KelasUpdated');
-            $this->reset(['nama_kelas', 'deskripsi', 'biaya', 'id_instruktur', 'waktu_mulai', 'waktu_selesai', 'hari', 'kuota', 'foto']);
             session()->flash('success', 'Kelas Berhasil diupdate');
         }
     }
-
 
     public function delete($id)
     {
@@ -165,12 +166,13 @@ class CreateKelas extends Component
         if ($data) {
             $data->delete();
             $this->dispatch('KelasDeleted');
-            $this->reset(['nama_kelas', 'deskripsi', 'biaya', 'id_instruktur', 'waktu_mulai', 'waktu_selesai', 'hari', 'kuota', 'foto']);
+            $this->reset(['nama_kelas', 'nama_kelas_other',  'deskripsi', 'biaya', 'id_instruktur', 'waktu_mulai', 'waktu_selesai', 'hari', 'kuota', 'foto']);
             session()->flash('success', 'Kelas Berhasil dihapus');
         } else {
             session()->flash('error', 'Kelas tidak ditemukan');
         }
     }
+
     public function render()
     {
         $this->instrukturs = Instruktur::all();
@@ -178,7 +180,7 @@ class CreateKelas extends Component
         return view('livewire.kelas.create-kelas', [
             'instrukturs' => $this->instrukturs,
             'kelas' => $this->kelas,
-            'days' => $this->days,
+            'days' => $this->days
         ]);
     }
 }
