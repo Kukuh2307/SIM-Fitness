@@ -62,7 +62,15 @@
                         </td>
                         <td class="px-6 py-4 text-sm text-gray-900 whitespace-nowrap">{{ $data->Nama_Alat }}</td>
                         <td class="px-6 py-4 text-sm text-gray-900 whitespace-nowrap">{{ $data->Jumlah }}</td>
-                        <td class="px-6 py-4 text-sm text-gray-900 whitespace-nowrap">{{ $data->Kondisi_Alat }}</td>
+                        <td class="px-6 py-4 text-sm text-gray-900 whitespace-nowrap">
+                            @if ($data->Kondisi_Alat === 'Baik')
+                                <span class="px-2 py-1 text-xs font-bold text-green-800 bg-green-200 rounded-full">Baik</span>
+                            @elseif ($data->Kondisi_Alat === 'Perlu Perbaikan')
+                                <span class="px-2 py-1 text-xs font-bold text-yellow-800 bg-yellow-200 rounded-full">Perlu Perbaikan</span>
+                            @else
+                                <span class="px-2 py-1 text-xs font-bold text-red-800 bg-red-200 rounded-full">Rusak Berat</span>
+                            @endif
+                        </td>
                         <td class="px-6 py-4 text-sm text-gray-900 whitespace-nowrap">{{ $data->Merk }}</td>
                         <td class="px-6 py-4 whitespace-nowrap">
                             <div class="flex space-x-2">

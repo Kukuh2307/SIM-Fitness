@@ -61,24 +61,24 @@
                         <td class="px-6 py-4 whitespace-nowrap">{{ $transaksi->Metode_Pembayaran }}</td>
                         <td class="px-6 py-4 whitespace-nowrap">
                             <span class="
-                                @if ($transaksi->Status == 'success') text-green-500 
-                                @elseif ($transaksi->Status == 'failed') text-red-500 
-                                @elseif ($transaksi->Status == 'pending') text-yellow-500 
-                                @elseif ($transaksi->Status == 'reject') text-gray-500 
-                                @else text-blue-500 
+                                @if ($transaksi->Status == 'success') px-2 py-1 text-xs font-bold text-green-800 bg-green-200 rounded-full 
+                                @elseif ($transaksi->Status == 'failed') px-2 py-1 text-xs font-bold text-red-800 bg-red-200 rounded-full 
+                                @elseif ($transaksi->Status == 'pending') px-2 py-1 text-xs font-bold text-yellow-800 bg-yellow-200 rounded-full 
+                                @elseif ($transaksi->Status == 'reject') px-2 py-1 text-xs font-bold text-gray-800 bg-gray-200 rounded-full 
+                                @else px-2 py-1 text-xs font-bold text-blue-800 bg-blue-200 rounded-full 
                                 @endif
                             ">
                                 {{ $transaksi->Status }}
                             </span>
                         </td>
-                        @if ($transaksi->Status == 'pending')                        
                         <td class="px-6 py-4 whitespace-nowrap">
                             <div class="flex space-x-2">
-                                <a wire:click='approve({{ $transaksi->id }})' class="text-blue-500 cursor-pointer hover:text-blue-700">Approve</a>
-                                <a wire:click='reject({{ $transaksi->id }})' class="text-red-500 cursor-pointer hover:text-red-700">Reject</a>
+                                @if ($transaksi->Status == 'pending')
+                                    <a wire:click='approve({{ $transaksi->id }})' class="text-blue-500 cursor-pointer hover:text-blue-700">Approve</a>
+                                    <a wire:click='reject({{ $transaksi->id }})' class="text-red-500 cursor-pointer hover:text-red-700">Reject</a>
+                                @endif
                             </div>
                         </td>
-                        @endif
                     </tr>
                 @endforeach
             </tbody>

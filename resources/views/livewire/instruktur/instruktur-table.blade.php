@@ -62,7 +62,11 @@
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">{{ $instruktur->Nama }}</td>
                         <td class="px-6 py-4 whitespace-nowrap">{{ $instruktur->Email }}</td>
-                        <td class="px-6 py-4 whitespace-nowrap">{{ $instruktur->Spesialis }}</td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <span class="px-2 py-1 text-xs font-bold text-white bg-blue-500 rounded-full">
+                                {{ $instruktur->Spesialis }}
+                            </span>
+                        </td>
                         <td class="px-6 py-4 whitespace-nowrap">{{ $instruktur->Biaya }}</td>
                         <td class="px-6 py-4 whitespace-nowrap">
                             <div class="flex space-x-2">
