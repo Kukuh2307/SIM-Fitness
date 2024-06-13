@@ -2,15 +2,16 @@
 
 use App\Livewire\Kelas;
 use App\Livewire\Member;
+use GuzzleHttp\Middleware;
+use App\Livewire\Dashboard;
 use App\Livewire\Informasi;
 use App\Livewire\Transaksi;
 use App\Livewire\Instruktur;
 use App\Livewire\ListingAlat;
 use App\Livewire\Landingpage\Home;
 use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\User\TransaksiHarian;
 use App\Http\Controllers\Admin\AdminController;
-use App\Livewire\Dashboard;
-use GuzzleHttp\Middleware;
 
 Route::redirect('/', 'home');
 
@@ -32,6 +33,10 @@ Route::get('/transaksi', [Transaksi::class, 'render'])->middleware(['auth', 'ver
 Route::get('members', [Member::class, 'render'])->middleware(['auth', 'verified', 'admin'])->name('members');
 Route::get('listing-alat', [ListingAlat::class, 'render'])->middleware(['auth', 'verified', 'admin'])->name('list-alat');
 Route::get('transaksi', [Transaksi::class, 'render'])->middleware(['auth', 'verified', 'admin'])->name('transaksi');
+
+
+// USER
+Route::get('transaksi-harian', [TransaksiHarian::class, 'render'])->middleware(['auth', 'verified', 'user'])->name('transaksi-harian');
 
 
 require __DIR__ . '/auth.php';

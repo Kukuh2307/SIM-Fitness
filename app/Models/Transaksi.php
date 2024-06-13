@@ -21,6 +21,7 @@ class Transaksi extends Model
         'Total_Biaya',
         'Metode_Pembayaran',
         'Status',
+        'snap_token',
     ];
 
     /**
@@ -31,4 +32,10 @@ class Transaksi extends Model
     protected $casts = [
         'id' => 'integer',
     ];
+
+    public function setStatus($status)
+    {
+        $this->attributes['Status'] = $status;
+        $this->save();
+    }
 }

@@ -31,11 +31,13 @@ models:
     Biaya: int
 
   Transaksi:
+    Transaksi_ID: string, unique
     Nama_User: string
     Nama_Instruktur: string
     Nama_Kelas: string
     Total_Biaya: int
     Metode_Pembayaran: string
-    Status: enum('Menunggu Konfirmasi', 'Dalam Proses', 'Selesai')
+    Status: enum('pending', 'success', 'failed')
+    Span_Token: string
 
 controllers:
