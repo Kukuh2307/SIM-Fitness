@@ -38,11 +38,12 @@ class TransaksiSeeder extends Seeder
             // Buat transaksi baru
             Transaksi::create([
                 'Nama_User' => $user->nama, // Sesuaikan dengan nama kolom yang benar di tabel users
+                'Email' => $user->email,
                 'Nama_Instruktur' => $faker->randomElement($instrukturs),
                 'Nama_Kelas' => $faker->randomElement($kelases),
                 'Total_Biaya' => $faker->numberBetween(100000, 1000000),
                 'Metode_Pembayaran' => $faker->randomElement(['BCA', 'OVO', 'DANA', 'GOPAY', 'LINKAJA', 'SHOPEEPAY']),
-                'Status' => $faker->randomElement(['pending', 'success', 'failed']),
+                'Status' => $faker->randomElement(['pending', 'failed']),
             ]);
         }
     }

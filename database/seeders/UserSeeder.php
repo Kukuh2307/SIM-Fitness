@@ -19,8 +19,6 @@ class UserSeeder extends Seeder
                 'Email' => $faker->email,
                 'Password' => $faker->password,
                 'Foto' => $faker->imageUrl,
-                'Tanggal_bergabung' => $faker->date,
-                'Tanggal_berakhir' => $faker->date,
                 'Role' => 'user'
             ]);
         }

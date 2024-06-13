@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
                 ListingAlatSeeder::class,
                 TransaksiSeeder::class,
                 InformasiSeeder::class,
-                RoleSeeder::class
+                // RoleSeeder::class
             ]);
         } catch (\Exception $e) {
             report($e);
