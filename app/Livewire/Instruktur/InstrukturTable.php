@@ -18,6 +18,15 @@ class InstrukturTable extends Component
 
     protected $queryString = ['search'];
 
+    public function edit($id)
+    {
+        $this->dispatch('instruktur-edit', ['id' => $id]);
+    }
+
+    public function delete($id)
+    {
+        $this->dispatch('instruktur-delete', ['id' => $id]);
+    }
     public function updatingSearch()
     {
         $this->resetPage();

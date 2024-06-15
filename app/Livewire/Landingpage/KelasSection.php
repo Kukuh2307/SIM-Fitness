@@ -33,6 +33,7 @@ class KelasSection extends Component
     }
     public function render()
     {
+        $this->kelas = Kelas::all();
         return view('livewire.landingpage.kelas-section', [
             'kelas' => $this->kelas,
             'currSlide' => $this->currSlide
