@@ -17,7 +17,7 @@ return Application::configure(basePath: dirname(__DIR__))
             'admin' => CheckUserMiddleware::class,
             'member' => CheckUserMiddleware::class,
             'user' => CheckUserMiddleware::class,
-            'role' => \App\Http\Middleware\CheckRole::class,
+            // 'role' => \App\Http\Middleware\CheckRole::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

@@ -19,7 +19,7 @@
             <div class="flex h-screen">
                 <livewire:layout.sidebar title="{{ $header }}" />
                 <div class="flex flex-col w-full h-full">
-                    <livewire:layout.navigation />
+                    {{-- <livewire:layout.navigation /> --}}
                     <!-- Page Heading -->
                     {{-- @if (isset($header))
                         <header class="shadow bg-sky-500">

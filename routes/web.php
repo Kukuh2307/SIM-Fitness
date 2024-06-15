@@ -9,9 +9,12 @@ use App\Livewire\Transaksi;
 use App\Livewire\Instruktur;
 use App\Livewire\ListingAlat;
 use App\Livewire\Landingpage\Home;
+use App\Livewire\User\DashboardUser;
 use Illuminate\Support\Facades\Route;
-use App\Http\Livewire\User\TransaksiHarian;
+use App\Livewire\User\Content\TransaksiHarian;
 use App\Http\Controllers\Admin\AdminController;
+use App\Livewire\User\Content\Dashboard as ContentDashboard;
+use App\Livewire\User\Content\JoinKelas;
 
 Route::redirect('/', 'home');
 
@@ -36,7 +39,9 @@ Route::get('transaksi', [Transaksi::class, 'render'])->middleware(['auth', 'veri
 
 
 // USER
-Route::get('transaksi-harian', [TransaksiHarian::class, 'render'])->middleware(['auth', 'verified', 'user'])->name('transaksi-harian');
+Route::get('user-transaksi-harian', [TransaksiHarian::class, 'render'])->middleware(['auth', 'verified', 'user', 'member'])->name('transaksi-harian');
+Route::get('user-dashboard', [ContentDashboard::class, 'render'])->middleware(['auth', 'verified', 'user', 'member'])->name('user.home');
+Route::get('user-join-kelas', [JoinKelas::class, 'render'])->middleware(['auth', 'verified', 'user', 'member'])->name('user.join-kelas');
 
 
 require __DIR__ . '/auth.php';

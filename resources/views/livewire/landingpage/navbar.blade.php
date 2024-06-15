@@ -50,14 +50,9 @@
                             {{ __('Dashboard Admin') }}
                         </a>
                     @endif
-                    @if(auth()->user()->Role == 'member')
-                        <a href="{{ route('dashboard') }}" class="block px-4 py-2 text-sm text-white hover:text-black hover:bg-gray-100">
-                            {{ __('Dashboard Member') }}
-                        </a>
-                    @endif
-                    @if(auth()->user()->Role == 'user')
-                        <a href="{{ route('dashboard') }}" class="block px-4 py-2 text-sm text-white hover:text-black hover:bg-gray-100">
-                            {{ __('Dashboard User') }}
+                    @if(auth()->user()->Role == 'member' || auth()->user()->Role == 'user')
+                        <a href="{{ url('user-dashboard') }}" class="block px-4 py-2 text-sm text-white hover:text-black hover:bg-gray-100">
+                            {{ __('Dashboard') }}
                         </a>
                     @endif
                     <div class="border-t border-gray-100"></div>
