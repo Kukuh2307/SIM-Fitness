@@ -21,7 +21,7 @@ new #[Layout('layouts.guest')] class extends Component
 
         Session::regenerate();
 
-        $this->redirectIntended(default: route('dashboard', absolute: false), navigate: true);
+        $this->redirectIntended(default: route('home', absolute: false), navigate: true);
     }
 };
 
@@ -71,7 +71,7 @@ new #[Layout('layouts.guest')] class extends Component
                     </div>
 
                     <!-- Login Button -->
-                    <button type="submit" class="block w-full py-2 mt-4 mb-2 font-semibold text-white bg-red-600 rounded-full hover:bg-red-700 rounded-2xl">Login</button>
+                    <button type="submit" class="block w-full py-2 mt-4 mb-2 font-semibold text-white bg-red-600 rounded-full hover:bg-red-700">Login</button>
 
                     @if (Route::has('password.request'))
                         <a class="ml-2 text-sm cursor-pointer hover:text-blue-500" href="{{ route('password.request') }}">
