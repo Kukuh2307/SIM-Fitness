@@ -17,8 +17,8 @@ new #[Layout('layouts.guest')] class extends Component
     public string $password = '';
     public string $password_confirmation = '';
     public $foto; // Properti untuk menangani file yang diunggah
-    public string $tanggal_bergabung = '';
-    public string $tanggal_berakhir = '';
+    // public string $tanggal_bergabung = '';
+    // public string $tanggal_berakhir = '';
     public string $role = 'user';
 
     /**
@@ -31,8 +31,8 @@ new #[Layout('layouts.guest')] class extends Component
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'confirmed', Rules\Password::defaults()],
             'foto' => ['image', 'max:1024'],
-            'tanggal_bergabung' => ['required', 'date'],
-            'tanggal_berakhir' => ['required', 'date'],
+            // 'tanggal_bergabung' => ['required', 'date'],
+            // 'tanggal_berakhir' => ['required', 'date'],
             'role' => ['required', 'in:admin,user'],
         ]);
 
@@ -48,8 +48,8 @@ new #[Layout('layouts.guest')] class extends Component
             'email' => $validated['email'],
             'password' => $validated['password'],
             'Foto' => $validated['foto'],
-            'Tanggal_bergabung' => $validated['tanggal_bergabung'],
-            'Tanggal_Berakhir' => $validated['tanggal_berakhir'],
+            // 'Tanggal_bergabung' => $validated['tanggal_bergabung'],
+            // 'Tanggal_Berakhir' => $validated['tanggal_berakhir'],
             'Role' => $validated['role'],
         ]);
 
@@ -117,25 +117,25 @@ new #[Layout('layouts.guest')] class extends Component
                     </div>
 
                     <!-- Tanggal Bergabung -->
-                    <div class="flex items-center px-3 py-2 mb-4 border-2 rounded-2xl">
+                    {{-- <div class="flex items-center px-3 py-2 mb-4 border-2 rounded-2xl">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V5a4 4 0 118 0v2a2 2 0 012 2v7a2 2 0 01-2 2H8a2 2 0 01-2-2V9a2 2 0 012-2zm4 0h.01M4 7a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2m-4 10h.01M12 12a4 4 0 110-8 4 4 0 010 8zm-4 6h8" />
                         </svg>
                         <input wire:model="tanggal_bergabung" id="tanggal_bergabung" class="w-full pl-2 border-none outline-none" type="date" name="tanggal_bergabung" required />
                         <x-input-error :messages="$errors->get('tanggal_bergabung')" class="mt-2" />
-                    </div>
+                    </div> --}}
 
                     <!-- Tanggal Berakhir -->
-                    <div class="flex items-center px-3 py-2 mb-4 border-2 rounded-2xl">
+                    {{-- <div class="flex items-center px-3 py-2 mb-4 border-2 rounded-2xl">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V5a4 4 0 118 0v2a2 2 0 012 2v7a2 2 0 01-2 2H8a2 2 0 01-2-2V9a2 2 0 012-2zm4 0h.01M4 7a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2m-4 10h.01M12 12a4 4 0 110-8 4 4 0 010 8zm-4 6h8" />
                         </svg>
                         <input wire:model="tanggal_berakhir" id="tanggal_berakhir" class="w-full pl-2 border-none outline-none" type="date" name="tanggal_berakhir" required />
                         <x-input-error :messages="$errors->get('tanggal_berakhir')" class="mt-2" />
-                    </div>
+                    </div> --}}
 
                     <div class="flex flex-col items-center justify-end mt-4">
-                        <button type="submit" class="block w-full py-2 mt-4 font-semibold text-white bg-red-600 rounded-2xl">Register</button>
+                        <button type="submit" class="block w-full py-2 mt-4 font-semibold text-white bg-red-600 rounded-full hover:bg-red-700 rounded-2xl">Register</button>
                         <a class="mt-3 text-sm text-gray-600 underline rounded-md hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}" wire:navigate>
                             {{ __('Already registered?') }}
                         </a>
