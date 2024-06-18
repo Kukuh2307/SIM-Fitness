@@ -41,7 +41,7 @@ Route::middleware(['auth', 'verified', 'adminMiddleware'])->group(function () {
 
 
 // USER
-Route::middleware(['auth', 'userMiddleware'])->group(function () {
+Route::middleware(['auth', 'verified', 'userMiddleware'])->group(function () {
     Route::get('user-dashboard', [ContentDashboard::class, 'render'])->name('user.home');
     Route::get('user-transaksi-harian', [TransaksiHarian::class, 'render'])->name('transaksi-harian');
     Route::get('user-join-kelas', [JoinKelas::class, 'render'])->name('user.join-kelas');

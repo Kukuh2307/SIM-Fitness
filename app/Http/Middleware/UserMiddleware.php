@@ -16,7 +16,7 @@ class UserMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::user()->Role == 'user') {
+        if (Auth::user()->Role == 'user' || Auth::user()->Role == 'member') {
             return $next($request);
         }
         return redirect()->back();
