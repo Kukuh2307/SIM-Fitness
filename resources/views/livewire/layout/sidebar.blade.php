@@ -31,6 +31,10 @@
             <img src="{{ asset('images/informasi.png') }}" alt="Informasi Icon" class="w-10 mr-5 filter invert">
             <a href="{{ url('informasi') }}" class="w-full text-left">Informasi</a>
         </li>
+        <li class="mt-5 flex items-center justify-start px-10 py-5 text-xl font-bold hover:bg-red-700 {{ $title == 'Setting' ? 'bg-red-700' : '' }}">
+            <img src="{{ asset('images/logout.png') }}" alt="logout Icon" class="w-10 mr-5 filter invert">
+            <a href="{{ url('logout') }}" class="w-full text-left">logout</a>
+        </li>
     </ul>
 </div>
 

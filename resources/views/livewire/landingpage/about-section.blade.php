@@ -6,8 +6,8 @@
         </div>
       </div>
   
-      <div class="flex-1 ">
-        <p class="text-[#f04e3c] relative before:absolute before:w-20 before:h-1 before:bg-[#f04e3c] before:top-[50%] before:left-0 pl-24 text-2xl before:translate-y-[-50%]">Tengang GYM Kami</p>
+      <div class="flex-1 mt-32">
+        <p class="text-[#f04e3c] relative before:absolute before:w-20 before:h-1 before:bg-[#f04e3c] before:top-[50%] before:left-0 pl-24 text-2xl before:translate-y-[-50%]">Tentang GYM Kami</p>
   
         <div class="my-7 text-5xl leading-[60px] font-semibold text-black max-xl:text-4xl max-xl:my-4 max-lg:my-7 max-lg:text-5xl max-lg:leading-[60px] max-sm:text-3xl">
           <h1 class="uppercase">Solusi Kebugaran yang Aman dan Efisien untuk Menghemat Waktu Berharga Anda!</h1>
@@ -18,7 +18,7 @@
         </p>
   
         <p class="mt-5 text-lg font text-slate-500 mb-14 max-xl:mb-8">
-          BGym kami menyediakan layanan dengan tata letak serbaguna yang fleksibel dan efisien. Anda dapat memilih tata letak favorit Anda.
+          Gym kami menyediakan layanan dengan tata letak serbaguna yang fleksibel dan efisien. Anda dapat memilih tata letak favorit Anda.
         </p>
         
         <button class="py-4 px-9 text-xl group relative text-white bg-[orangered] rounded-sm">

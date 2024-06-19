@@ -13,12 +13,15 @@ return new class extends Migration
     {
         Schema::create('transaksis', function (Blueprint $table) {
             $table->id();
+            $table->string('Transaksi_ID')->unique();
             $table->string('Nama_User');
-            $table->string('Nama_Instruktur');
-            $table->string('Nama_Kelas');
+            $table->string('Email');
+            $table->string('Nama_Instruktur')->nullable();
+            $table->string('Nama_Kelas')->nullable();
             $table->string('Total_Biaya');
             $table->string('Metode_Pembayaran');
-            $table->string('Status');
+            $table->string('Status')->default('pending');
+            $table->string('Snap_Token')->nullable();
             $table->timestamps();
         });
     }
