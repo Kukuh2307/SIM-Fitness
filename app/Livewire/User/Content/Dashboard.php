@@ -2,6 +2,7 @@
 
 namespace App\Livewire\User\Content;
 
+use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Kelas;
 use Livewire\Component;
@@ -23,9 +24,13 @@ class Dashboard extends Component
         $transaksi_kelas = Transaksi::where('Nama_User', $user->nama)
             ->whereNotNull('Nama_Instruktur')
             ->whereNotNull('Nama_Kelas')
-            ->get();
+            ->get();;
 
         $kelas = Kelas::whereIn('Nama_Kelas', $transaksi_kelas->pluck('Nama_Kelas'))->get();
+
+        $kuota_terisi = $kelas->sum(function ($kelas) {
+            return Transaksi::where('Nama_Kelas', $kelas->Nama_Kelas)->count();
+        });
 
         $total_transaksi_harian = $transaksi_harian->count();
         $total_transaksi_kelas = $total_transaksi - $total_transaksi_harian;
@@ -35,7 +40,8 @@ class Dashboard extends Component
             'total_transaksi' => $total_transaksi,
             'total_transaksi_harian' => $total_transaksi_harian,
             'total_transaksi_kelas' => $total_transaksi_kelas,
-            'kelas' => $kelas
+            'kuota_terisi' => $kuota_terisi,
+            'kelas' => $kelas,
         ]);
     }
 }
