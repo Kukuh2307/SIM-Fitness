@@ -13,32 +13,13 @@ use App\Livewire\User\DashboardUser;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\User\Content\TransaksiHarian;
 use App\Http\Controllers\Admin\AdminController;
-use App\Livewire\Dashboard;
-use GuzzleHttp\Middleware;
-=========
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Home\HomeController;
-use App\Http\Controllers\Admin\AdminController;
-use App\Http\Controllers\TransaksiController;
-use App\Livewire\Informasi;
-use App\Livewire\Instruktur;
-use App\Livewire\Kelas;
-use App\Livewire\kelasUser;
-use App\Livewire\UserDashboard;
-
->>>>>>>>> Temporary merge branch 2
+use App\Livewire\User\Content\Dashboard as ContentDashboard;
+use App\Livewire\User\Content\JoinKelas;
 
 Route::redirect('/', 'home');
 
 Route::get('/logout', [AdminController::class, 'logout'])->name('logout');
 
-<<<<<<<<< Temporary merge branch 1
-=========
-Route::get('dashboard', [AdminController::class, 'index'])
-    ->middleware(['auth', 'verified', 'admin'])
-    ->name('dashboard');
-
->>>>>>>>> Temporary merge branch 2
 Route::view('profile', 'profile')
     ->middleware(['auth', 'admin'])
     ->name('profile');
