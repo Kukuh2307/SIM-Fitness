@@ -19,7 +19,23 @@ class Transaksi extends Model
         'Nama_Instruktur',
         'Nama_Kelas',
         'Total_Biaya',
-        'Metoide_Pembayaran',
+        'Metode_Pembayaran',
         'Status',
+        'snap_token',
     ];
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'id' => 'integer',
+    ];
+
+    public function setStatus($status)
+    {
+        $this->attributes['Status'] = $status;
+        $this->save();
+    }
 }

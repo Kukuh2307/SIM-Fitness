@@ -17,8 +17,8 @@ return new class extends Migration
             $table->string('email');
             $table->string('password');
             $table->string('Foto');
-            $table->dateTime('Tanggal_bergabung');
-            $table->dateTime('Tanggal_Berakhir');
+            $table->dateTime('Tanggal_bergabung')->nullable()->default(null);
+            $table->dateTime('Tanggal_Berakhir')->nullable()->default(null);
             $table->enum('Role', ['admin', 'user', 'member'])->default('user');
             $table->timestamps();
         });

@@ -14,8 +14,8 @@
     <form wire:submit.prevent="store">
         @csrf
         <div class="flex flex-col gap-3">
-            <input type="text" name="judul" wire:model="judul" class="w-full p-2 text-black bg-white rounded-lg" placeholder="Judul">
-            <textarea name="deskripsi" wire:model="deskripsi" id="deskripsi" cols="30" rows="10" class="w-full p-2 text-black bg-white rounded-lg" placeholder="Deskripsi"></textarea>
+            <input type="text" name="judul" wire:model="judul" class="w-full p-3 text-black rounded-lg border border-black-200 focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Judul">
+            <textarea name="deskripsi" wire:model="deskripsi" id="deskripsi" cols="30" rows="10" class="w-full p-3 text-black rounded-lg border border-black-200 focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Deskripsi"></textarea>
         </div>
         @if ($btnUpdate == true)
         <div class="flex justify-end mt-3">

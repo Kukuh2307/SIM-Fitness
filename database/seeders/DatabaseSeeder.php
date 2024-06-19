@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Livewire\Informasi;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -13,15 +14,19 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->call([
-            KelasSeeder::class,
-            InstrukturSeeder::class,
-        ]);
-        // User::factory(10)->create();
-
-        // User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        try {
+            $this->call([
+                KelasSeeder::class,
+                InstrukturSeeder::class,
+                UserSeeder::class,
+                ListingAlatSeeder::class,
+                TransaksiSeeder::class,
+                InformasiSeeder::class,
+                // RoleSeeder::class
+            ]);
+        } catch (\Exception $e) {
+            report($e);
+            throw $e;
+        }
     }
 }

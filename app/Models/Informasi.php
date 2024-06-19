@@ -19,4 +19,13 @@ class Informasi extends Model
         'Judul',
         'Deskripsi',
     ];
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'id' => 'integer',
+    ];
 }
