@@ -8,6 +8,7 @@ use App\Models\Transaksi;
 
 class TransaksiHarian extends Component
 {
+    public $title = 'Transaksi Harian';
     public function render()
     {
         $user_id = auth()->user()->id;
@@ -17,6 +18,7 @@ class TransaksiHarian extends Component
             ->whereNull('Nama_Instruktur')
             ->get();
         return view('livewire.user.content.transaksi-harian', [
+            'title' => $this->title,
             'transaksi_harian' => $transaksi_harian
         ]);
     }

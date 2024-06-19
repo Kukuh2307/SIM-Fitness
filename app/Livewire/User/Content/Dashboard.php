@@ -10,6 +10,7 @@ use App\Models\Transaksi;
 
 class Dashboard extends Component
 {
+    public $title = 'Dashboard User';
     public function render()
     {
         $user_id = auth()->user()->id;
@@ -36,6 +37,7 @@ class Dashboard extends Component
         $total_transaksi_kelas = $total_transaksi - $total_transaksi_harian;
 
         return view('livewire.user.content.dashboard', [
+            'title' => $this->title,
             'user' => $user,
             'total_transaksi' => $total_transaksi,
             'total_transaksi_harian' => $total_transaksi_harian,

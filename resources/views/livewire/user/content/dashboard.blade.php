@@ -7,7 +7,7 @@
             <!-- Profile Summary -->
             <div class="col-span-2 p-4 bg-white rounded-lg dark:bg-gray-800">
                 <div class="flex items-center mb-4">
-                    <img class="w-16 h-16 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="user photo">
+                    <img class="w-16 h-16 rounded-full" src="{{ Storage::url($user->Foto) }}" alt="user photo">
                     <div class="ml-4">
                         <h2 class="text-xl font-semibold text-gray-900 dark:text-white">{{ $user->name }}</h2>
                         <p class="text-sm text-center text-black bg-green-300"><b>{{ $user->Role }}</b></p>
@@ -31,6 +31,7 @@
         </div>
         <!-- Kelas Details & Activities -->
         <div class="grid grid-cols-2 gap-3 ">
+            @if (Auth::user()->Role == 'member')                
             <!-- Kelas Details -->
             <div class="p-4 bg-white rounded-lg dark:bg-gray-800">
                 <h3 class="mb-4 text-2xl font-semibold text-gray-900 dark:text-white">Kelas Aktif</h3>
@@ -67,7 +68,24 @@
                     @if ($hari <= 7)
                     <button class="w-full px-4 py-2 mt-4 font-semibold text-white bg-red-500 rounded hover:bg-red-600"><a href="{{ url('user.content.dashboard') }}">Perpanjang Member</a></button>
                     @endif
+            </div>  
+            @else
+            {{-- Transaksi Harian --}}
+            <div class="p-4 bg-white rounded-lg dark:bg-gray-800">
+                <h3 class="mb-4 text-2xl font-semibold text-gray-900 dark:text-white">Transaksi Harian</h3>
+                <div class="flex flex-col bg-white rounded-lg text-surface shadow-secondary-1 dark:bg-surface-dark dark:text-white md:flex-row">
+                    <a href="{{ url('user.content.dashboard') }}" class="w-full px-4 py-4 mt-4 font-semibold text-center text-white bg-red-500 rounded hover:bg-red-600">Pesan Sekarang</a>
+                </div>
             </div>
+            
+            {{-- Daftar Kelas --}}
+            <div class="p-4 bg-white rounded-lg dark:bg-gray-800">
+                <h3 class="mb-4 text-2xl font-semibold text-gray-900 dark:text-white">Daftar Kelas</h3>
+                <div class="flex flex-col bg-white rounded-lg text-surface shadow-secondary-1 dark:bg-surface-dark dark:text-white md:flex-row">
+                    <a href="{{ url('user.content.dashboard') }}" class="w-full px-4 py-4 mt-4 font-semibold text-center text-white bg-red-500 rounded hover:bg-red-600">Daftar Kelas Sekarang</a>
+                </div>
+            </div>
+            @endif
             <!-- Subscription -->
             {{-- <div class="col-span-1 p-4 bg-white rounded-lg dark:bg-gray-800">
                 <h3 class="mb-4 text-xl font-semibold text-gray-900 dark:text-white">Membership</h3>

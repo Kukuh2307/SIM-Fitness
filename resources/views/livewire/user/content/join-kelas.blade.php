@@ -1,5 +1,7 @@
 @extends('livewire.user.dashboard-user')
 
+@section('title', 'Join Kelas')
+
 @section('content')
 <div class="sm:ml-64">
     <div class="border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-14">

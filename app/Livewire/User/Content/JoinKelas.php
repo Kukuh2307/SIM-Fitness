@@ -7,9 +7,13 @@ use Livewire\Component;
 
 class JoinKelas extends Component
 {
+    public $title = 'Join Kelas';
     public function render()
     {
         $kelas = Kelas::latest()->paginate(5);
-        return view('livewire.user.content.join-kelas', compact('kelas'));
+        return view('livewire.user.content.join-kelas', [
+            'title' => $this->title,
+            'kelas' => $kelas
+        ]);
     }
 }

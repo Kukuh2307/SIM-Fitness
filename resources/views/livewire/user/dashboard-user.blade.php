@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <title>User Dashboard</title>
+    <title>@yield('title', 'Dashboard User')</title>
     <style>
         .active {
             background-color: #D81E17; /* Highlight color for active state */
@@ -66,38 +66,39 @@
         </div>
     </nav>
 
-    <!-- Sidebar -->
-    @livewire('user.component.sidebar')
+        <!-- Sidebar -->
+        @livewire('user.component.sidebar',['title' => $title])
 
-    <!-- Main Content -->
-    @yield('content')
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-        // Function to set active class based on current page
-        function setActiveSidebar() {
-            const currentPath = window.location.pathname;
-            const sidebarLinks = document.querySelectorAll("#sidebarMenu a");
-
-            sidebarLinks.forEach(link => {
-                const linkPath = new URL(link.href).pathname;
-                if (linkPath === currentPath) {
-                    link.classList.add('active');
-                } else {
-                    link.classList.remove('active');
-                }
+        <!-- Main Content -->
+        @yield('content')
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+            // Function to set active class based on current page
+            function setActiveSidebar() {
+                const currentPath = window.location.pathname;
+                const sidebarLinks = document.querySelectorAll("#sidebarMenu a");
+    
+                sidebarLinks.forEach(link => {
+                    const linkPath = new URL(link.href).pathname;
+                    if (linkPath === currentPath) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+            }
+    
+            // Toggle sidebar function
+            const sidebarToggle = document.getElementById('sidebarToggle');
+            const sidebar = document.getElementById('logo-sidebar');
+            sidebarToggle.addEventListener('click', () => {
+                sidebar.classList.toggle('-translate-x-full');
             });
-        }
-
-        // Toggle sidebar function
-        const sidebarToggle = document.getElementById('sidebarToggle');
-        const sidebar = document.getElementById('logo-sidebar');
-        sidebarToggle.addEventListener('click', () => {
-            sidebar.classList.toggle('-translate-x-full');
+    
+            // Call the function on page load
+            document.addEventListener('DOMContentLoaded', setActiveSidebar);
         });
-
-        // Call the function on page load
-        document.addEventListener('DOMContentLoaded', setActiveSidebar);
-    });
-    </script>
+        </script>
+    </body>
 </body>
 </html>
