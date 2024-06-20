@@ -21,10 +21,9 @@
           Gym kami menyediakan layanan dengan tata letak serbaguna yang fleksibel dan efisien. Anda dapat memilih tata letak favorit Anda.
         </p>
         
-        <button class="py-4 px-9 text-xl group relative text-white bg-[orangered] rounded-sm">
-          <div class="buttonDiv"></div>
-          <span class="buttonSpan">Daftar Member</span>
-        </button>
+        <a href="/membership" class="py-4 px-9 text-xl group relative text-white bg-[orangered] rounded-sm">
+          <span  class="buttonSpan">Daftar Member</span>
+        </a>
       </div>
     </div>
   </section>

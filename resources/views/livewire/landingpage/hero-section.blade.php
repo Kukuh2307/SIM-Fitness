@@ -11,7 +11,7 @@
       
           <button class="py-4 px-7 text-xl group relative text-white bg-[orangered] rounded-sm">
             <div class="buttonDiv"></div>
-            <span class="buttonSpan">Daftar Member</span>
+            <a href="/membership" class="buttonSpan">Daftar Member</a>
           </button>
         </div>
     </div>
