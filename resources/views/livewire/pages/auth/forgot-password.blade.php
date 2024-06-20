@@ -31,7 +31,8 @@ new #[Layout('layouts.guest')] class extends Component
     }
 };
 ?>
-
+          @vite(['resources/css/app.css', 'resources/js/app.js'])
+          @livewireStyles
 <div class="bg-gradient-to-tr from-red-600 to-slate-900">
     <div class="flex items-center justify-center h-screen">
         <div class="flex w-5/6 overflow-hidden bg-white shadow-lg h-5/6 rounded-2xl">

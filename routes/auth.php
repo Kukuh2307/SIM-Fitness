@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\VerifyEmailController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
@@ -11,11 +12,19 @@ Route::middleware('guest')->group(function () {
     Volt::route('login', 'pages.auth.login')
         ->name('login');
 
-    Volt::route('forgot-password', 'pages.auth.forgot-password')
+    // Menggunakan Route::view untuk halaman forgot-password dan reset-password
+    Route::view('forgot-password', 'livewire.pages.auth.forgot-password')
         ->name('password.request');
 
-    Volt::route('reset-password/{token}', 'pages.auth.reset-password')
+    Route::view('reset-password/{token}', 'pages.auth.reset-password')
         ->name('password.reset');
+
+    // Menggunakan Route::post untuk rute yang memanggil controller
+    Route::post('forgot-password', [ForgotPasswordController::class, 'SendResetLinkEmail'])
+        ->name('password.email');
+
+    Route::post('reset-password', [ForgotPasswordController::class, 'reset'])
+        ->name('password.update');
 });
 
 Route::middleware('auth')->group(function () {

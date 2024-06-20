@@ -39,7 +39,7 @@ class HomeController extends Controller
 
     public function index()
     {
-        return view('landingpage.home', [
+        return view('livewire.landingpage.home', [
             'client' => $this->getClient(),
             'test' => 'test'
         ]);
