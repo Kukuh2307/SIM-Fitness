@@ -4,38 +4,38 @@ use Illuminate\Support\Facades\Password;
 use Livewire\Attributes\Layout;
 use Livewire\Volt\Component;
 
-new #[Layout('layouts.guest')] class extends Component
-{
-    public string $email = '';
+// new #[Layout('layouts.guest')] class extends Component
+// {
+//     public string $email = '';
 
-    /**
-     * Send a password reset link to the provided email address.
-     */
-    public function sendPasswordResetLink(): void
-    {
-        $this->validate([
-            'email' => ['required', 'string', 'email'],
-        ]);
+//     /**
+//      * Send a password reset link to the provided email address.
+//      */
+//     public function sendPasswordResetLink(): void
+//     {
+//         $this->validate([
+//             'email' => ['required', 'string', 'email'],
+//         ]);
 
-        $status = Password::sendResetLink(
-            ['email' => $this->email]
-        );
+//         $status = Password::sendResetLink(
+//             ['email' => $this->email]
+//         );
 
-        if ($status != Password::RESET_LINK_SENT) {
-            $this->addError('email', __($status));
-            return;
-        }
+//         if ($status != Password::RESET_LINK_SENT) {
+//             $this->addError('email', __($status));
+//             return;
+//         }
 
-        $this->reset('email');
-        session()->flash('status', __($status));
-    }
-};
+//         $this->reset('email');
+//         session()->flash('status', __($status));
+//     }
+// };
 ?>
 
 <div class="bg-gradient-to-tr from-red-600 to-slate-900">
     <div class="flex items-center justify-center h-screen">
         <div class="flex w-5/6 overflow-hidden bg-white shadow-lg h-5/6 rounded-2xl">
-            <div class="relative flex items-center justify-around w-1/2 px-20 bg-center bg-cover" style="background-image: url('{{ asset('assets/img-19.jpg') }}');">
+            <div class="relative flex items-center justify-around w-1/2 px-20 bg-center bg-cover" style="background-image: url('');">
                 <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-tr from-red-600/70 to-slate-900/70"></div>
                 <div class="relative z-10 p-10 text-center max-w-4/5">
                     <h1 class="font-sans text-4xl font-bold text-white">Forgot Password</h1>
@@ -43,7 +43,7 @@ new #[Layout('layouts.guest')] class extends Component
                 </div>
             </div>
             <div class="flex items-center justify-center w-1/2 p-10 bg-white">
-                <form wire:submit.prevent="sendPasswordResetLink" class="w-full max-w-md bg-white">
+                <form wire:submit.prevent="sendResetLinkEmail" class="w-full max-w-md bg-white">
                     <!-- Session Status -->
                     <x-auth-session-status class="mb-4" :status="session('status')" />
                     
