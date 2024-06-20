@@ -16,6 +16,9 @@ use App\Livewire\User\DashboardUser;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\User\Content\TransaksiHarian;
 use App\Http\Controllers\Admin\AdminController;
+use App\Livewire\Membership\Harian;
+use App\Livewire\Membership\InvoiceHarian;
+use App\Livewire\User\Content\CreateTransaksiHarian;
 use App\Livewire\User\Content\Dashboard as ContentDashboard;
 use App\Livewire\User\Content\JoinKelas;
 
@@ -53,5 +56,6 @@ Route::middleware(['auth', 'verified', 'userMiddleware'])->group(function () {
 Route::get('membership', [Membership::class, 'render'])->name('membership');
 Route::post('/create-invoice',[Membership::class, 'createInvoice'])->name('createInvoice');
 Route::get("/invoice-menu", [InvoiceMembership::class , 'render'])->name('invoice-menu');
+
 
 require __DIR__ . '/auth.php';
