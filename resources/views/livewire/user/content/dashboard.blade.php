@@ -38,7 +38,7 @@
                 <div class="flex flex-col bg-white rounded-lg text-surface shadow-secondary-1 dark:bg-surface-dark dark:text-white md:flex-row">
                 <img
                     class="h-48 w-48 rounded-t-lg object-cover md:w-48 md:!rounded-none md:!rounded-s-lg"
-                    src="{{ Storage::url($kelas->first()->Foto) }}"
+                    src="{{ Storage::url($kelas->first()->Foto)  }}"
                     alt="" />
                 <div class="flex flex-col justify-start px-6 overflow-hidden">
                     <h5 class="mb-2 text-xl font-medium">{{ $kelas->first()->Nama_Kelas }}</h5>
