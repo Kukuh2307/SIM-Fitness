@@ -38,7 +38,7 @@ class TransaksiTable extends Component
             $transaksi->update(['Status' => 'success']);
         }
 
-        if ($user) {
+        if ($user->Nama_Instruktur != null && $user->Nama_Kelas != null) {
             $user->update([
                 'Role' => 'member',
                 'Tanggal_Bergabung' => now(),

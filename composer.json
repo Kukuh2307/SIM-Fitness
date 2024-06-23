@@ -18,7 +18,8 @@
         "livewire/livewire": "^3.4",
         "livewire/volt": "^1.0",
         "midtrans/midtrans-php": "^2.5",
-        "spatie/laravel-permission": "^6.7"
+        "spatie/laravel-permission": "^6.7",
+        "xendit/xendit-php": "^5.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",

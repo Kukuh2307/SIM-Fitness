@@ -12,13 +12,15 @@ Route::middleware('guest')->group(function () {
     Volt::route('login', 'pages.auth.login')
         ->name('login');
 
-    Volt::route('forgot-password', 'pages.auth.forgot-password')
+    // Menggunakan Route::view untuk halaman forgot-password dan reset-password
+    Route::view('forgot-password', 'livewire.pages.auth.forgot-password')
         ->name('password.request');
 
-    Volt::route('reset-password/{token}', 'pages.auth.reset-password')
+    Route::view('reset-password/{token}', 'pages.auth.reset-password')
         ->name('password.reset');
 
-    Volt::route('forgot-password', [ForgotPasswordController::class, 'SendResetLinkEmail'])
+    // Menggunakan Route::post untuk rute yang memanggil controller
+    Route::post('forgot-password', [ForgotPasswordController::class, 'SendResetLinkEmail'])
         ->name('password.email');
 
     Route::post('reset-password', [ForgotPasswordController::class, 'reset'])
