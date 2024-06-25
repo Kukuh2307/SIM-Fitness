@@ -21,10 +21,26 @@
                           <p class="h-32 mt-1 overflow-hidden text-gray-500 dark:text-neutral-400">
                             {{ $item->Deskripsi }}
                             </p>
-                            <a class="px-3 py-2 mt-2 text-sm font-semibold text-white bg-red-600 border border-transparent rounded-lg gap-x-2 hover:bg-red-700 disabled:opacity-50 disabled:pointer-events-none" href="#">
-                                Daftar Sekarang
-                            </a>
-                      </div>
+                          <form 
+                              action="{{route('joinKelas')}}" 
+                              method="post">
+                              @csrf
+                              <input 
+                                type="text"
+                                name="namaKelas"
+                                value="{{ $item->Nama_Kelas }}"
+                                hidden>
+                                <input type="text"
+                                name="id_kelas"
+                                value="{{$item->id}}"
+                                hidden>
+                              <button
+                              type="submit" 
+                              class="px-3 py-2 mt-2 text-sm font-semibold text-white bg-red-600 border border-transparent rounded-lg gap-x-2 hover:bg-red-700 disabled:opacity-50 disabled:pointer-events-none">
+                              Daftar Sekarang
+                              <button>
+                              </div>
+                              </form>
                     </div>
                   </div>
                   @endforeach

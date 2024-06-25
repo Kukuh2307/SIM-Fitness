@@ -56,6 +56,7 @@ Route::middleware(['auth', 'verified', 'userMiddleware'])->group(function () {
 Route::get('membership', [Membership::class, 'render'])->name('membership');
 Route::post('/create-invoice',[Membership::class, 'createInvoice'])->name('createInvoice');
 Route::get("/invoice-menu", [InvoiceMembership::class , 'render'])->name('invoice-menu');
+Route::post('join-kelas',[JoinKelas::class,'joinKelas'])->name('joinKelas');
 
 
 require __DIR__ . '/auth.php';

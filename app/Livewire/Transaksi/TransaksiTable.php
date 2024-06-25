@@ -3,6 +3,8 @@
 namespace App\Livewire\Transaksi;
 
 use App\Models\User;
+
+use App\Models\Membership;
 use Livewire\Component;
 use App\Models\Transaksi;
 use Livewire\WithPagination;
@@ -15,6 +17,10 @@ class TransaksiTable extends Component
     public $search = '';
     public $isDashboard = false; // Properti untuk menentukan apakah sedang di halaman dashboard
     protected $queryString = ['search'];
+
+    public $bulan;
+
+    
 
     public function mount()
     {
@@ -33,18 +39,23 @@ class TransaksiTable extends Component
     {
         $transaksi = Transaksi::find($id);
         $user = User::where('nama', $transaksi->Nama_User)->first();
+        $member = Transaksi::where("Nama_Kelas", 'AND', "Nama_Instruktur")->exist();
+
+        $this->bulan = new Membership();
+        $this->bulan = $this->bulan->bulan;
 
         if ($transaksi) {
             $transaksi->update(['Status' => 'success']);
         }
 
-        if ($user->Nama_Instruktur != null && $user->Nama_Kelas != null) {
+        if ($member) {
             $user->update([
                 'Role' => 'member',
                 'Tanggal_Bergabung' => now(),
-                'Tanggal_Berakhir' => now()->addMonth()
+                'Tanggal_Berakhir' => now()->addMonth($this->bulan)
             ]);
         }
+        
 
         $this->reset('search');
         session()->flash('success', 'Transaksi Berhasil diapprove');

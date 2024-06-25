@@ -13,6 +13,7 @@ use Xendit\Invoice\InvoiceItem;
 
 use App\Models\Membership as ModelsOrder;
 use App\Models\Transaksi;
+use Illuminate\Support\Facades\Session;
 
 class Membership extends Component
 {
@@ -20,6 +21,7 @@ class Membership extends Component
     {
         Configuration::setXenditKey(env('XENDIT_SECRET_KEY'));
     }
+    
 
     public function createInvoice(Request $request)
     {
@@ -30,6 +32,7 @@ class Membership extends Component
         $order->member_name = auth()->user()->nama;
         $order->member_email = auth()->user()->email;
         $order->plan_name = $request->input('item_name');
+        $order->bulan = $request->input('bulan');
         $order->metode_pembayaran = "Virtual Payment";
         $order->price = $request->input('price');
 
@@ -47,12 +50,9 @@ class Membership extends Component
             'amount' => $request->input('price'),
             'invoice_duration' => 172800,
             'items' => array($items),
-            "merchant_profile_picture_url" => "",
-            "reminder_date" => null,
             "success_redirect_url" => "http://127.0.0.1:8000/user-dashboard",
             'currency' => 'IDR',
             'should_send_email' => true,
-            'recurring_payment_id' => $no_transaction,
         ]);
 
         $apiInstance = new InvoiceApi();
@@ -60,61 +60,25 @@ class Membership extends Component
 
         $order->invoice_url = $generateInvoice['invoice_url'];
         $order->save();
-
+        
+        $namaKelas = Session::get('namaKelas');
+        $namaInstruktur = Session::get('instruktur');
         $transaksi = new Transaksi();
         $transaksi->Nama_User = auth()->user()->nama;
         $transaksi->Email = auth()->user()->email;
         $transaksi->Total_Biaya = $request->input('price');
         $transaksi->Metode_Pembayaran = "Virtual Payment";
         $transaksi->Status = "pending";
-        $transaksi->Nama_Instruktur = null;
-        $transaksi->Nama_Kelas = null;
-        $transaksi->no_transaction = $no_transaction;  // Update with correct column name
+        $transaksi->Nama_Instruktur = $namaInstruktur;
+        $transaksi->Nama_Kelas = $namaKelas;
+        $transaksi->Transaksi_ID = $no_transaction;  
+        $transaksi->no_transaction = $no_transaction;
+        // dd($transaksi);
         $transaksi->save();
 
         return Redirect::away('/invoice-menu');
     }
 
-    public function notificationCallback(Request $request)
-    {
-        $getToken = $request->headers->get('x-callback-token');
-        $callbackToken = env('XENDIT_CALLBACK_TOKEN');
-
-        try {
-            $order = ModelsOrder::where('external_id', $request->external_id)->first();
-
-            if (!$callbackToken) {
-                return response()->json([
-                    'status' => 'Error',
-                    'message' => 'Callback token Xendit not exists',
-                ], Response::HTTP_NOT_FOUND);
-            }
-            if ($getToken !== $callbackToken) {
-                return response()->json([
-                    'status' => 'Error',
-                    'message' => 'Token callback invalid',
-                ], Response::HTTP_INTERNAL_SERVER_ERROR);
-            }
-
-            if ($order) {
-                if ($request->status === "PAID") {
-                    $order->update([
-                        'status' => 'Completed'
-                    ]);
-                } else {
-                    $order->update([
-                        'status' => 'Failed'
-                    ]);
-                }
-            }
-            return response()->json([
-                'status' => Response::HTTP_OK,
-                'message' => 'callback sent',
-            ]);
-        } catch (\Throwable $th) {
-            throw $th;
-        }
-    }
 
     public function render()
     {

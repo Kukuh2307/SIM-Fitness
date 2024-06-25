@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('member_name');
             $table->string('member_email');
             $table->string('plan_name');
+            $table->integer('bulan')->nullable();
             $table->integer('price');
             $table->string('metode_pembayaran');
             $table->string('status')->default('Pending');

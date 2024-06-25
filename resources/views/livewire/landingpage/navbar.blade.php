@@ -42,7 +42,7 @@
                 <div @click="open = !open" class="flex items-center cursor-pointer">
                     <div class="buttonDiv"></div>
                     <span class="buttonSpan">{{ auth()->user()->name }}</span>
-                    <x-heroicon-s-chevron-down class="w-5 h-5 ml-2 buttonSpan" />
+                    <x-dropdown-link class="w-5 h-5 ml-2 buttonSpan" />
                 </div>
                 <div x-show="open" @click.away="open = false" class="absolute right-0 z-50 w-48 py-1 mt-2 bg-black rounded-md shadow-lg">
                     @if(auth()->user()->Role == 'admin')

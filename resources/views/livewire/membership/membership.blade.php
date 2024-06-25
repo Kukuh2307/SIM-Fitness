@@ -17,6 +17,7 @@
                      1 bulan
                 </label>
                 <input type="text" name="item_name" id="item_name" value="1 bulan" class="hidden">
+                <input type="number" name="bulan" value="1" hidden>
                 {{-- price --}}
                 <label for="price" class="text-white">
                     Rp <span class="font-bold">200.000</span>/bulan
@@ -62,6 +63,7 @@
                      6 bulan
                 </label>
                 <input type="text" name="item_name" id="item_name" value="6 bulan" class="hidden">
+                <input type="number" name="bulan" value="6" hidden>
                 {{-- price --}}
                 <label for="price" class="text-white">
                     Rp <span class="font-bold">190.000</span>/bulan
@@ -108,6 +110,7 @@
                      12 bulan
                 </label>
                 <input type="text" name="item_name" id="item_name" value="12 bulan" class="hidden">
+                <input type="number" name="bulan" value="12" hidden>
                 {{-- price --}}
                 <label for="price" class="text-white">
                     Rp <span class="font-bold">185.000</span>/bulan
@@ -154,6 +157,7 @@
                      24 bulan
                 </label>
                 <input type="text" name="item_name" id="item_name" value="24 bulan" class="hidden">
+                <input type="number" name="bulan" value="24" hidden>
                 {{-- price --}}
                 <label for="price" class="text-white">
                     Rp <span class="font-bold">180.000</span>/bulan
